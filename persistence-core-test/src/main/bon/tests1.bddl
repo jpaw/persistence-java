@@ -1,4 +1,4 @@
-/** Persistence test entities for the persistence DSL. */
+// Persistence test entities for the persistence DSL.
 
 import tests1.*
 
