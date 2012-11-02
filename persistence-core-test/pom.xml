@@ -27,10 +27,31 @@
             <version>${bonaparte.version}</version>
         </dependency>
         <dependency>
+            <groupId>de.jpaw</groupId>
+            <artifactId>persistence-eclipselink</artifactId>
+            <version>${bonaparte.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.jpaw</groupId>
+            <artifactId>persistence-hibernate</artifactId>
+            <version>${bonaparte.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>5.12.1</version>   <!-- 5.14.9 or 6.7 use waaay more dependencies -->
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.core</artifactId>
+            <version>2.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.1.7.Final</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -44,8 +65,7 @@
     <build>
         <plugins>
             <plugin>
-                <!-- must deleted generated source as well as unit test output for the 
-                    clean target -->
+                <!-- must deleted generated source as well as unit test output for the clean target -->
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>2.5</version>
                 <configuration>

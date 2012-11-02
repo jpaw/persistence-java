@@ -13,12 +13,11 @@
 
     <modules>
         <module>../persistence-core/pom.xml</module>
+        <module>../persistence-hibernate/pom.xml</module>
+        <module>../persistence-eclipselink/pom.xml</module>
 
         <module>../persistence-core-test/generator/pom.xml</module>
         <module>../persistence-core-test/pom.xml</module>
-        
-        <module>../persistence-hibernate/pom.xml</module>
-        <module>../persistence-eclipselink/pom.xml</module>
     </modules>
 
     <properties>
