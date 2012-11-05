@@ -1,9 +1,11 @@
 package de.jpaw.bonaparte.jpa;
 
+import java.sql.Types;
 import java.util.Calendar;
 
 import org.eclipse.persistence.mappings.DatabaseMapping;
 import org.eclipse.persistence.mappings.converters.Converter;
+import org.eclipse.persistence.mappings.foundation.AbstractDirectMapping;
 import org.eclipse.persistence.sessions.Session;
 import org.joda.time.LocalDate;
 
@@ -25,6 +27,7 @@ public class JodaLocalDateConverter implements Converter {
 
     @Override
     public void initialize(DatabaseMapping mapping, Session session) {
+        ((AbstractDirectMapping) mapping).setFieldType(Types.DATE);
     }
 
     @Override

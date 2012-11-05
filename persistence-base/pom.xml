@@ -11,17 +11,6 @@
     <description>Common configuration settings for all BONAPARTE projects</description>
     <url>http://www.jpaw.de/projects/bonaparte/index.html</url>
 
-    <modules>
-        <module>../persistence-core/pom.xml</module>
-        <module>../persistence-hibernate/pom.xml</module>
-        <module>../persistence-eclipselink/pom.xml</module>
-
-        <!-- Deactivated because the generated bddl files don't compile (persistence-dsl problem)
-        <module>../persistence-core-test/generator/pom.xml</module>
-        <module>../persistence-core-test/pom.xml</module>
-        -->
-    </modules>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- define releases we want to use, to ensure consistency -->
@@ -95,6 +84,14 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <modules>
+                <module>../persistence-core/pom.xml</module>
+                <module>../persistence-hibernate/pom.xml</module>
+                <module>../persistence-eclipselink/pom.xml</module>
+
+                <!-- Deactivated for build because the generated bddl files actually don't compile (persistence-dsl problem) 
+                    <module>../persistence-core-test/generator/pom.xml</module> <module>../persistence-core-test/pom.xml</module> -->
+            </modules>
             <distributionManagement>
                 <repository>
                     <id>kreios-ast-snapshots</id>
@@ -114,6 +111,15 @@
         </profile>
         <profile>
             <id>jpaw</id>
+            <modules>
+                <module>../persistence-core/pom.xml</module>
+                <module>../persistence-hibernate/pom.xml</module>
+                <module>../persistence-eclipselink/pom.xml</module>
+
+                <!-- Deactivated for build because the generated bddl files actually don't compile (persistence-dsl problem) 
+                    <module>../persistence-core-test/generator/pom.xml</module> <module>../persistence-core-test/pom.xml</module> -->
+            </modules>
+
             <distributionManagement>
                 <snapshotRepository>
                     <id>repo-snapshots</id>
@@ -126,6 +132,15 @@
                     <url>${repo.url}/libs-release-local</url>
                 </repository>
             </distributionManagement>
+        </profile>
+        <profile>
+            <id>eclipse</id>
+            <modules>
+                <module>../persistence-core/pom.xml</module>
+                <module>../persistence-hibernate/pom.xml</module>
+                <module>../persistence-eclipselink/pom.xml</module>
+                <module>../persistence-core-test/pom.xml</module>
+            </modules>
         </profile>
     </profiles>
 
