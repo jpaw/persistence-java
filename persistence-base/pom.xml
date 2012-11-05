@@ -81,9 +81,6 @@
     <profiles>
         <profile>
             <id>kreios</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <modules>
                 <module>../persistence-core/pom.xml</module>
                 <module>../persistence-hibernate/pom.xml</module>
@@ -111,6 +108,9 @@
         </profile>
         <profile>
             <id>jpaw</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <modules>
                 <module>../persistence-core/pom.xml</module>
                 <module>../persistence-hibernate/pom.xml</module>
@@ -119,7 +119,6 @@
                 <!-- Deactivated for build because the generated bddl files actually don't compile (persistence-dsl problem) 
                     <module>../persistence-core-test/generator/pom.xml</module> <module>../persistence-core-test/pom.xml</module> -->
             </modules>
-
             <distributionManagement>
                 <snapshotRepository>
                     <id>repo-snapshots</id>
