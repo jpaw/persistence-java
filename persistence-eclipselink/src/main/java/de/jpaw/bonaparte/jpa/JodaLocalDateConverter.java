@@ -1,7 +1,7 @@
 package de.jpaw.bonaparte.jpa;
 
+import java.sql.Timestamp;
 import java.sql.Types;
-import java.util.Calendar;
 
 import org.eclipse.persistence.mappings.DatabaseMapping;
 import org.eclipse.persistence.mappings.converters.Converter;
@@ -17,7 +17,7 @@ public class JodaLocalDateConverter implements Converter {
 
     @Override
     public Object convertDataValueToObjectValue(Object dataValue, Session session) {
-        return dataValue == null ? null : LocalDate.fromCalendarFields((Calendar) dataValue);
+        return dataValue == null ? null : LocalDate.fromDateFields((Timestamp) dataValue);
     }
 
     @Override
