@@ -10,13 +10,17 @@ default
 package persistencetest owner scott prefix test {
     grants rw {
         demorole: SELECT,INSERT,UPDATE,DELETE;
-    };
+    }
     
-    category tests grants rw;
+    category tests {
+       grants rw
+    }
 
+    // commented out, cannot have a primitive as primary key, because we use that as a generics parameter
+    /*
     entity PrimitivesEntity category tests is Primitives {
         pk (int1)
-    }       
+    }  */      
     
     entity BoxedTypesEntity category tests is BoxedTypes {
         pk (int1)
