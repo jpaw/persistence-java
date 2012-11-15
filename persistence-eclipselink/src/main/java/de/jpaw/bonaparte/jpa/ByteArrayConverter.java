@@ -15,7 +15,7 @@ public class ByteArrayConverter implements Converter {
 
     @Override
     public Object convertDataValueToObjectValue(Object dataValue, Session session) {
-        return dataValue == null ? null : new ByteArray((byte[]) dataValue, 0, -1);
+        return dataValue == null ? null : new ByteArray((byte[]) dataValue, 0, ((byte[]) dataValue).length);
     }
 
     @Override
