@@ -39,7 +39,7 @@ public class ByteArrayUserType implements UserType {
 
     @Override
     public int[] sqlTypes() {
-        return new int[] { Types.VARBINARY };
+        return new int[] { Types.BINARY };
     }
 
     // common implementation
