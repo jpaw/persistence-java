@@ -5,15 +5,9 @@
 
     <persistence-unit name="test-hibernate-h2" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <class>com.arvatosystems.fortytwo.app.iso.entities.Languages</class>
-        <class>com.arvatosystems.fortytwo.app.iso.entities.Countries</class>
-        <class>com.arvatosystems.fortytwo.app.iso.entities.Currencies</class>
-        <class>com.arvatosystems.fortytwo.entities.base.messaging.Messages</class>
-        <class>com.arvatosystems.fortytwo.entities.base.messaging.Sources</class>
-        <class>com.arvatosystems.fortytwo.entities.base.data.Users</class>
-        <class>com.arvatosystems.fortytwo.entities.base.data.Tenants</class>
-        <class>com.arvatosystems.fortytwo.app.usertypes.entities.ByteArrayWrappers</class>
-        <class>com.arvatosystems.fortytwo.app.usertypes.entities.BonaPortableWrappers</class>
+        <class>de.jpaw.bonaparte.pojos.persistencetest.BoxedTypesEntity</class>
+        <class>de.jpaw.bonaparte.pojos.persistencetest.OtherTypesEntity</class>
+
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
         <properties>
@@ -30,15 +24,8 @@
 
     <persistence-unit name="test-eclipselink-h2" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <class>com.arvatosystems.fortytwo.app.iso.entities.Languages</class>
-        <class>com.arvatosystems.fortytwo.app.iso.entities.Countries</class>
-        <class>com.arvatosystems.fortytwo.app.iso.entities.Currencies</class>
-        <class>com.arvatosystems.fortytwo.entities.base.messaging.Messages</class>
-        <class>com.arvatosystems.fortytwo.entities.base.messaging.Sources</class>
-        <class>com.arvatosystems.fortytwo.entities.base.data.Users</class>
-        <class>com.arvatosystems.fortytwo.entities.base.data.Tenants</class>
-        <class>com.arvatosystems.fortytwo.app.usertypes.entities.ByteArrayWrappers</class>
-        <class>com.arvatosystems.fortytwo.app.usertypes.entities.BonaPortableWrappers</class>
+        <class>de.jpaw.bonaparte.pojos.persistencetest.BoxedTypesEntity</class>
+        <class>de.jpaw.bonaparte.pojos.persistencetest.OtherTypesEntity</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
         <properties>
