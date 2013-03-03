@@ -4,7 +4,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>persistence-base</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.3.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>BONAPARTE common configuration (parent pom)</name>
@@ -14,8 +14,19 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- define releases we want to use, to ensure consistency -->
-        <bonaparte.version>1.0-SNAPSHOT</bonaparte.version>
+        <!-- Own dependencies -->
+        <bonaparte.version>1.3.1-SNAPSHOT</bonaparte.version>
+        <bonaparte-dsl.version>1.3.1-SNAPSHOT</bonaparte-dsl.version>
+        <bonaparte-persistence.version>1.3.1-SNAPSHOT</bonaparte-persistence.version>
+        <!-- public libraries -->
         <slf4j.version>1.6.6</slf4j.version>
+        <eclipselink.version>2.4.1</eclipselink.version>
+        <hibernate.version>4.1.7.Final</hibernate.version>
+        <testng.version>5.12.1</testng.version>
+        <!-- XText / Tycho -->
+        <tycho-version>0.15.0</tycho-version>
+        <fornax-version>3.4.0</fornax-version>
+        <xtend-version>2.3.1</xtend-version>
     </properties>
 
     <licenses>
@@ -37,6 +48,150 @@
             <url>http://www.jpaw.de</url>
         </developer>
     </developers>
+    
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>1.3.1</version>
+                    <executions>
+                        <execution>
+                            <id>versions</id>
+                            <phase>clean</phase>
+                            <goals>
+                                <goal>update-child-modules</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>2.5</version>
+                    <configuration>
+                        <filesets>
+                            <fileset>
+                                <directory>test-output</directory>
+                                <includes>
+                                    <include>**</include>
+                                </includes>
+                            </fileset>
+                            <fileset>
+                                <directory>src/generated</directory>
+                                <includes>
+                                    <include>**</include>
+                                </includes>
+                            </fileset>
+                            <fileset>
+                                <directory>target</directory>
+                                <includes>
+                                    <include>**</include>
+                                </includes>
+                            </fileset>
+                            <fileset>
+                                <directory>bin</directory> <!-- sometimes Eclipse puts files in here! -->
+                                <includes>
+                                    <include>**</include>
+                                </includes>
+                            </fileset>
+                        </filesets>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.eclipse.xtend</groupId>
+                    <artifactId>xtend-maven-plugin</artifactId>
+                    <version>${xtend-version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.eclipse.tycho</groupId>
+                    <artifactId>tycho-maven-plugin</artifactId>
+                    <version>${tycho-version}</version>
+                    <extensions>true</extensions>
+                </plugin>
+                <plugin>
+                    <groupId>org.eclipse.tycho</groupId>
+                    <artifactId>tycho-p2-repository-plugin</artifactId>
+                    <version>${tycho-version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.eclipse.tycho</groupId>
+                    <artifactId>tycho-packaging-plugin</artifactId>
+                    <version>${tycho-version}</version>
+                    <configuration>
+                        <strictBinIncludes>false</strictBinIncludes>
+                        <strictVersions>false</strictVersions>  <!-- essential for releases - should run SNAPSHOTs without this setting to verify MANFEST OK -->
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.fornax.toolsupport</groupId>
+                    <artifactId>fornax-oaw-m2-plugin</artifactId>
+                    <version>${fornax-version}</version>
+                    <executions>
+                        <execution>
+                            <id>xtext-bon</id>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>run-workflow</goal>
+                            </goals>
+                            <configuration>
+                                <timestampFileName>xtext-generator.timestamp</timestampFileName>
+                                <workflowDescriptor>jar:file:${user.home}/.m2/repository/de/jpaw/bonaparte-dsl/de.jpaw.bonaparte.dsl/${bonaparte-dsl.version}/de.jpaw.bonaparte.dsl-${bonaparte-dsl.version}.jar!/de/jpaw/bonaparte/dsl/generator/BonScriptGeneratorMWE.mwe2</workflowDescriptor>
+                                <properties>
+                                    <modelPath>../../src/main/bon</modelPath>
+                                    <targetDir>../../src/generated</targetDir>
+                                </properties>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>xtext-bddl</id>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>run-workflow</goal>
+                            </goals>
+                            <configuration>
+                                <workflowDescriptor>jar:file:${user.home}/.m2/repository/de/jpaw/bonaparte-dsl/de.jpaw.persistence.dsl/${bonaparte-dsl.version}/de.jpaw.persistence.dsl-${bonaparte-dsl.version}.jar!/de/jpaw/persistence/dsl/generator/BDDLGeneratorMWE.mwe2</workflowDescriptor>
+                                <timestampFileName>xtext-generator-bddl.timestamp</timestampFileName>
+                                <properties>
+                                    <modelPath>../../src/main/bon</modelPath>
+                                    <targetDir>../../src/generated</targetDir>
+                                </properties>
+                            </configuration>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <workflowEngine>mwe2</workflowEngine>
+                        <jvmSettings>
+                            <fork>true</fork>
+                            <jvmArgs>
+                                <jvmArg>-Xms100m</jvmArg>
+                                <jvmArg>-Xmx700m</jvmArg>
+                                <jvmArg>-XX:MaxPermSize=256m</jvmArg>
+                            </jvmArgs>
+                        </jvmSettings>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.5.1</version>
+                    <configuration>
+                        <source>1.7</source>
+                        <target>1.7</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>2.9</version>
+                    <configuration>
+                        <charset>UTF-8</charset>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
     <pluginRepositories>
         <pluginRepository>
@@ -53,56 +208,54 @@
 
     <repositories>
         <repository>
+            <id>EclipseLink Repo</id>
+            <url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
+        </repository>
+        <repository>
             <id>maven.eclipse.org</id>
-            <url>
-      http://maven.eclipse.org/nexus/content/groups/public/</url>
+            <url>http://maven.eclipse.org/nexus/content/groups/public/</url>
         </repository>
         <repository>
             <id>xtend.repository</id>
-            <name>Xtend Repository</name>
+            <name>Xtend2 Repository</name>
             <url>http://build.eclipse.org/common/xtend/maven/</url>
         </repository>
         <repository>
             <id>xtext</id>
-            <url>
-      http://build.eclipse.org/common/xtext/maven/maven-snapshot/final/</url>
+            <url>http://build.eclipse.org/common/xtext/maven/maven-snapshot/final/</url>
+        </repository>
+        <repository>
+            <id>p2-juno</id>
+            <layout>p2</layout>
+            <url>http://download.eclipse.org/releases/juno</url>
+        </repository>
+        <repository>
+            <id>p2-xtext</id>
+            <layout>p2</layout>
+            <url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases</url>
         </repository>
         <repository>
             <id>fornax.repository</id>
             <name>Fornax Repository</name>
             <url>http://www.fornax-platform.org/m2/repository</url>
         </repository>
-        <repository>
-            <id>EclipseLink Repo</id>
-            <url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
-        </repository>
     </repositories>
 
     <profiles>
         <profile>
             <id>kreios</id>
-            <modules>
-                <module>../persistence-core/pom.xml</module>
-                <module>../persistence-hibernate/pom.xml</module>
-                <module>../persistence-eclipselink/pom.xml</module>
-
-                <!-- Deactivated for build because the generated bddl files actually don't compile (persistence-dsl problem) 
-                    <module>../persistence-core-test/generator/pom.xml</module> <module>../persistence-core-test/pom.xml</module> -->
-            </modules>
             <distributionManagement>
                 <repository>
                     <id>kreios-ast-snapshots</id>
                     <name>Bonaparte Snapshots</name>
-                    <url>
-                    http://nexus.kreios.lu/nexus/content/repositories/ast-snapshots/</url>
+                    <url>http://nexus.kreios.lu/nexus/content/repositories/ast-snapshots/</url>
                 </repository>
             </distributionManagement>
             <repositories>
                 <repository>
                     <id>kreios-ast-snapshots</id>
                     <name>Bonaparte Snapshots</name>
-                    <url>
-      http://nexus.kreios.lu/nexus/content/repositories/ast-snapshots/</url>
+                    <url>http://nexus.kreios.lu/nexus/content/repositories/ast-snapshots/</url>
                 </repository>
             </repositories>
         </profile>
@@ -111,14 +264,6 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <modules>
-                <module>../persistence-core/pom.xml</module>
-                <module>../persistence-hibernate/pom.xml</module>
-                <module>../persistence-eclipselink/pom.xml</module>
-
-                <!-- Deactivated for build because the generated bddl files actually don't compile (persistence-dsl problem) 
-                    <module>../persistence-core-test/generator/pom.xml</module> <module>../persistence-core-test/pom.xml</module> -->
-            </modules>
             <distributionManagement>
                 <snapshotRepository>
                     <id>repo-snapshots</id>
@@ -131,40 +276,15 @@
                     <url>${repo.url}/libs-release-local</url>
                 </repository>
             </distributionManagement>
-        </profile>
-        <profile>
-            <id>eclipse</id>
-            <modules>
-                <module>../persistence-core/pom.xml</module>
-                <module>../persistence-hibernate/pom.xml</module>
-                <module>../persistence-eclipselink/pom.xml</module>
-                <module>../persistence-core-test/pom.xml</module>
-            </modules>
+            <repositories>
+                <repository>
+                    <id>repo</id>
+                    <name>Artifactory virtual combined repository</name>
+                    <url>${repo.url}/repo</url>
+                </repository>
+            </repositories>
         </profile>
     </profiles>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.5.1</version>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.8.1</version>
-                <configuration>
-                    <charset>UTF-8</charset>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
     <reporting>
         <plugins>
@@ -179,11 +299,12 @@
         </plugins>
     </reporting>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-    </dependencies>
+    <modules>
+        <module>../persistence-core/pom.xml</module>
+        <module>../persistence-hibernate/pom.xml</module>
+        <module>../persistence-eclipselink/pom.xml</module>
+        <module>../persistence-core-test/modules/generator/pom.xml</module>
+        <module>../persistence-core-test/pom.xml</module>
+    </modules>
+    
 </project>
