@@ -4,7 +4,7 @@
     <parent>
         <groupId>de.jpaw</groupId>
         <artifactId>persistence-base</artifactId>
-        <version>1.5.1-SNAPSHOT</version>
+        <version>1.5.0</version>
         <relativePath>../persistence-base</relativePath>
     </parent>
 
