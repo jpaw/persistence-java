@@ -21,7 +21,7 @@
         <!-- public libraries -->
         <slf4j.version>1.6.6</slf4j.version>
         <eclipselink.version>2.4.1</eclipselink.version>
-        <hibernate.version>4.1.7.Final</hibernate.version>
+        <hibernate.version>4.2.1.Final</hibernate.version>  <!-- 4.2.1 introduces official support for Postgres 9.2 -->
         <testng.version>5.12.1</testng.version>
         <!-- XText / Tycho -->
         <tycho-version>0.16.0</tycho-version>
