@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.jpaw</groupId>
+        <artifactId>persistence-srcgen</artifactId>
+        <version>1.5.2-SNAPSHOT</version>
+        <relativePath>../../persistence-base/generator</relativePath>
+    </parent>
+
+    <artifactId>persistence-core-test-source</artifactId>
+    <packaging>eclipse-plugin</packaging>
+
+    <name>PERSISTENCE core library extended unit tests - generated files</name>
+    <url>http://www.jpaw.de/projects/bonaparte/core/index.html</url>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.tycho</groupId>
+                <artifactId>tycho-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.eclipse.tycho</groupId>
+                <artifactId>tycho-p2-repository-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.eclipse.tycho</groupId>
+                <artifactId>tycho-packaging-plugin</artifactId>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.fornax.toolsupport</groupId>
+                <artifactId>fornax-oaw-m2-plugin</artifactId>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>de.jpaw.bonaparte-dsl</groupId>
+            <artifactId>de.jpaw.persistence.dsl</artifactId>
+            <version>${bonaparte-dsl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.jpaw.bonaparte-dsl</groupId>
+            <artifactId>de.jpaw.bonaparte.dsl</artifactId>
+            <version>${bonaparte-dsl.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>
