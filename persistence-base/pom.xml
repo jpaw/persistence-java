@@ -208,11 +208,11 @@
     </reporting>
 
     <modules>
-        <module>../persistence-srcgen</module>
+        <module>generator/pom.xml</module>
         <module>../persistence-core/</module>
         <module>../persistence-hibernate</module>
         <module>../persistence-eclipselink</module>
-        <module>../persistence-core-test/modules/generator</module>
+        <module>../persistence-core-test/generator</module>
         <module>../persistence-core-test</module>
     </modules>
 
