@@ -18,27 +18,27 @@ package de.jpaw.bonaparte.jpa;
 import java.io.Serializable;
 import de.jpaw.util.ApplicationException;
 
-/** 
+/**
  * Defines the key related methods a JPA entity class implements.
  * The classes and their implementations are usually created by the bonaparte add-on DSL BDDL.
  * This is an interface using generics for the KEY type.
- *  
+ *
  * @author Michael Bischoff
  *
  **/
 public interface BonaKey<K extends Serializable> {
-    
+
     /** Gets the class of the underlying key class for the data object.
-     * 
+     *
      * @return the class type of the underlying key class, never null.
      */
     public Class<K> get$KeyClass();
     /** Gets a new message object initialized with the Entity classes data.
-     *  
+     *
      * @throws EnumException (if key contains an enum), but for future extensions, the more generic ApplicationException is declared.
      * @return a new object of the base class initialized with the data of this instance.
      */
     public K get$Key() throws ApplicationException;
     public void set$Key(K _d);
-    
+
 }

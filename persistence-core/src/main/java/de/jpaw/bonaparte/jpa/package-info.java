@@ -17,6 +17,6 @@
  * Provides interfaces implemented by the secondary DSL, BDDL (persistence add-on).
  *
  * @author Michael Bischoff
- * 
+ *
  */
 package de.jpaw.bonaparte.jpa;

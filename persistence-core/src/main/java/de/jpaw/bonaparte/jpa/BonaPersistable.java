@@ -23,7 +23,7 @@ import de.jpaw.bonaparte.core.BonaPortable;
  * Defines the methods a JPA entity class implements.
  * The classes and their implementations are usually created by the bonaparte add-on DSL BDDL.
  * This is an interface using generics for KEY, DATA and TRACKING types. If there is no tracking, "Object" should be used instead.
- * 
+ *
  * @author Michael Bischoff
  *
  **/

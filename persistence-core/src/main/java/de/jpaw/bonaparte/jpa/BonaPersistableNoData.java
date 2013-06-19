@@ -19,14 +19,14 @@ import java.io.Serializable;
 
 import de.jpaw.bonaparte.core.BonaPortable;
 
-/** 
+/**
  * Defines the methods a JPA entity class implements.
  * The classes and their implementations are usually created by the bonaparte add-on DSL BDDL.
  * This is an interface using generics for KEY and TRACKING types. If there is no tracking, "Object" should be used instead.
- *  
+ *
  * @author Michael Bischoff
  *
  **/
-public interface BonaPersistableNoData<K extends Serializable, T extends BonaPortable> 
+public interface BonaPersistableNoData<K extends Serializable, T extends BonaPortable>
 		extends BonaTracking<T>, BonaKey<K>, BonaPersistableBase {
 }

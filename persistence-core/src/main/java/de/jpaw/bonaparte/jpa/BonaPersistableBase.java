@@ -15,30 +15,30 @@
   */
 package de.jpaw.bonaparte.jpa;
 
-/** 
+/**
  * Defines the core methods a JPA entity class implements.
  * The classes and their implementations are usually created by the bonaparte add-on DSL BDDL.
- *  
+ *
  * @author Michael Bischoff
  *
  **/
 
 public interface BonaPersistableBase {
     /** Gets some optional RTTI (runtime type information). If no rtti has been supplied, the rtti of a parent class is returned.
-     * 
+     *
      * @return some numeric value defined in the DSL.
      */
 	public int get$rtti();
 	
-    /** method to activate or deactivate a row */ 
+    /** method to activate or deactivate a row */
     public void set$Active(boolean _a);
-    /** method to query activeness */ 
+    /** method to query activeness */
     public boolean get$Active();
-    
-    /** method to set an integer version */ 
+
+    /** method to set an integer version */
     public void set$IntVersion(int _v);
     /** method to query current version.
-     * @returns -1 if no version column of type int or Integer in this entity */ 
+     * @returns -1 if no version column of type int or Integer in this entity */
     public int get$IntVersion();
 
 }
