@@ -19,9 +19,9 @@
         <bonaparte-dsl.version>1.5.8-SNAPSHOT</bonaparte-dsl.version>
         <bonaparte-persistence.version>1.5.8-SNAPSHOT</bonaparte-persistence.version>
         <!-- public libraries -->
-        <slf4j.version>1.6.6</slf4j.version>
-        <eclipselink.version>2.4.1</eclipselink.version>
-        <hibernate.version>4.2.1.Final</hibernate.version>  <!-- 4.2.1 introduces official support for Postgres 9.2 -->
+        <slf4j.version>1.7.5</slf4j.version>
+        <eclipselink.version>2.4.2</eclipselink.version>
+        <hibernate.version>4.2.2.Final</hibernate.version>  <!-- 4.2.1 introduces official support for Postgres 9.2 -->
         <testng.version>5.12.1</testng.version>
         <!-- XText / Tycho -->
         <tycho-version>0.18.0</tycho-version>
@@ -109,6 +109,17 @@
                     </configuration>
                 </plugin>
                 <plugin>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>2.2.1</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>2.9</version>
@@ -145,6 +156,10 @@
                     <fail>true</fail>
                     <failFast>true</failFast>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
