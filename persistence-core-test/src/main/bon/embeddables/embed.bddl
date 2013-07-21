@@ -16,10 +16,9 @@ package def owner jpaw prefix xxx {
 }
 
 package embedTest owner jpaw prefix jp {
-	embeddable AddressEntity is Address {
-		
-	}
+	embeddable AddressEntity is Address {}
 	
+    embeddable Add2Entity is Add2 {}
 	
 	@Generator(noMapper)
 	entity PersonEntity category cfg is Person {
@@ -27,5 +26,7 @@ package embedTest owner jpaw prefix jp {
 		@Embeddable AddressEntity for homeAddress
 		@Embeddable AddressEntity for extra prefix ex suffix Tra
 		@Embeddable AddressEntity for addressWork
+        @Embeddable AddressEntity for evenMore
+		@Embeddable Add2Entity for myAdd2
 	}
 }
