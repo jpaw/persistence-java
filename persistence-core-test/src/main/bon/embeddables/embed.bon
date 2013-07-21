@@ -1,0 +1,25 @@
+
+package embeddables {
+    default unsigned trim noControlChars;
+    properties unroll;
+    type city  is Unicode(30);
+    
+    final class Address {
+    	required Unicode(20)	street;
+    	optional Ascii(10) zipCode;
+    	city city;
+    }
+    
+    class Person {
+    	Long personKey;
+    	Unicode(20) name;
+    	(Address)   homeAddress;
+    	(Address)	addressWork;
+    	(Address)	extra;
+    	Unicode(80) List<3> addressLines properties unroll; 
+    }
+    
+    class Tracking {
+    	Ascii(8)	userId;
+    }
+}

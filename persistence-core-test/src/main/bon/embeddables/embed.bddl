@@ -1,0 +1,31 @@
+import embeddables.*
+import def.*
+
+default
+    tablenamepattern "(prefix)_(category)_(entity)" dropSuffix "_entity"
+    tablespacepattern "rts42(category)0(DI)"
+    ;
+
+package def owner jpaw prefix xxx {
+    grants rw {  // read/write for regular tables
+        jpawro :   SELECT;
+        jpawrw :   SELECT,INSERT,UPDATE,DELETE;
+    }
+    
+    category cfg { trackinggroup Tracking requiresPK grants rw }
+}
+
+package embedTest owner jpaw prefix jp {
+	embeddable AddressEntity is Address {
+		
+	}
+	
+	
+	@Generator(noMapper)
+	entity PersonEntity category cfg is Person {
+		pk (personKey)
+		@Embeddable AddressEntity for homeAddress
+		@Embeddable AddressEntity for extra prefix ex suffix Tra
+		@Embeddable AddressEntity for addressWork
+	}
+}
