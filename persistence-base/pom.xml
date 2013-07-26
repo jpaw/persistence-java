@@ -7,8 +7,8 @@
     <version>1.5.8-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>BONAPARTE common configuration (parent pom)</name>
-    <description>Common configuration settings for all BONAPARTE projects</description>
+    <name>PERSISTENCE common configuration (parent pom)</name>
+    <description>Common configuration settings for all PERSISTENCE projects</description>
     <url>http://www.jpaw.de/projects/bonaparte/index.html</url>
 
     <properties>
