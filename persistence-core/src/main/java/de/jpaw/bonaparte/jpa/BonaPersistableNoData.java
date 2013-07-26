@@ -27,11 +27,11 @@ import de.jpaw.bonaparte.core.BonaPortable;
  * @author Michael Bischoff
  *
  **/
-public interface BonaPersistableNoData<K extends Serializable, T extends BonaPortable>
+public interface BonaPersistableNoData<K extends Serializable, T extends BonaPortable, E extends BonaPersistableNoData<K, T, E>>
 		extends BonaTracking<T>, BonaKey<K>, BonaPersistableBase {
     
     /** Merges the contents of one entity instance into the current one.
      * Performs a shallow copy.
      */
-    public BonaPersistableNoData<K, T> mergeFrom(BonaPersistableNoData<K, T> source);
+    public E mergeFrom(E source);
 }

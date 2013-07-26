@@ -27,6 +27,6 @@ import de.jpaw.bonaparte.core.BonaPortable;
  * @author Michael Bischoff
  *
  **/
-public interface BonaPersistable<K extends Serializable, D extends BonaPortable, T extends BonaPortable>
- extends BonaPersistableNoData<K, T>, BonaData<D> {
+public interface BonaPersistable<K extends Serializable, D extends BonaPortable, T extends BonaPortable, E extends BonaPersistableNoData<K, T, E>>
+ extends BonaPersistableNoData<K, T, E>, BonaData<D> {
 }

@@ -12,8 +12,7 @@
     <artifactId>persistence-core-test</artifactId>
     <packaging>jar</packaging>
 
-    <name>BONAPARTE core library extended unit tests</name>
-    <url>http://www.jpaw.de</url>
+    <name>PERSISTENCE core library extended unit tests</name>
 
     <dependencies>
         <dependency>

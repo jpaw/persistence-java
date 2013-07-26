@@ -12,9 +12,7 @@
     <artifactId>persistence-eclipselink</artifactId>
     <packaging>jar</packaging>
 
-    <name>BONAPARTE Usertypes for custom fields</name>
-    <description>Definition and implementation of BONAPARTE serializers and deserializers</description>
-    <url>http://www.jpaw.de/projects/bonaparte/core/index.html</url>
+    <name>PERSISTENCE Usertypes for EclipseLink</name>
 
     <dependencies>
         <dependency>
