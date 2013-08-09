@@ -21,7 +21,7 @@ package relations.test owner scott prefix test {
     entity TestEntity category tests is TestObject {
         pk (myKey)
         @ManyToOne ParentEntity parent LAZY for (parentRef)
-        @OneToMany List ItemEntity items2 EAGER for (items)  
+        @OneToMany List ItemEntity items EAGER for (dummyRef)  
         @ElementCollection prices in the_other_table (test_entity_key) mapKey currencyCode
     }
 }
