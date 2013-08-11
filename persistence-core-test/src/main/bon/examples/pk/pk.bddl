@@ -1,0 +1,28 @@
+import examples.pkey.*
+
+@Generator(noMapper)
+package examples.pkey.entities owner scott prefix pkey {
+    grants rw {
+        demorole: SELECT,INSERT,UPDATE,DELETE;
+    }
+    category tests {
+       grants rw
+    }
+
+    embeddable EKeyEntity is EKey {}
+    
+    
+    entity NoPkEntity category tests is EDto {
+    }
+    
+    entity OneFieldPkEntity category tests is EDto {
+        pk (data)
+    }
+    
+    entity MultiFieldPkEntity category tests is EDto2 {
+        pk (key1, key2)
+    }
+    entity EmbeddedPkEntity category tests is EDto {
+    	@Embeddable EKeyEntity for myCompositeKey is pk
+    }
+}
