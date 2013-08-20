@@ -41,4 +41,9 @@ public interface BonaPersistableBase {
      * @returns -1 if no version column of type int or Integer in this entity */
     public int get$IntVersion();
 
+    
+    /** Merges the contents of one entity instance into the current one.
+     * Performs a shallow copy.
+     */
+    public BonaPersistableBase mergeFrom(BonaPersistableBase source);
 }
