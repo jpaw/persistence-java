@@ -24,9 +24,9 @@
         <hibernate.version>4.2.2.Final</hibernate.version>  <!-- 4.2.1 introduces official support for Postgres 9.2 -->
         <testng.version>5.12.1</testng.version>
         <!-- XText / Tycho -->
-        <tycho-version>0.18.0</tycho-version>
+        <tycho-version>0.18.1</tycho-version>
         <fornax-version>3.4.0</fornax-version>
-        <xtend-version>2.4.2</xtend-version>
+        <xtend-version>2.4.3</xtend-version>
     </properties>
 
     <licenses>
