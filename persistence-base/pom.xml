@@ -234,6 +234,7 @@
                     <url>${repo.url}/libs-release-local</url>
                 </repository>
             </distributionManagement>
+<!--
             <repositories>
                 <repository>
                     <id>repo</id>
@@ -241,6 +242,7 @@
                     <url>${repo.url}/repo</url>
                 </repository>
             </repositories>
+-->
         </profile>
     </profiles>
 
