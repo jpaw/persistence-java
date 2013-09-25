@@ -4,7 +4,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>persistence-base</artifactId>
-    <version>1.6.2-SNAPSHOT</version>
+    <version>1.6.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>PERSISTENCE common configuration (parent pom)</name>
@@ -15,9 +15,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
-        <bonaparte.version>1.6.2-SNAPSHOT</bonaparte.version>
-        <bonaparte-dsl.version>1.6.2-SNAPSHOT</bonaparte-dsl.version>
-        <bonaparte-persistence.version>1.6.2-SNAPSHOT</bonaparte-persistence.version>
+        <bonaparte.version>1.6.3-SNAPSHOT</bonaparte.version>
+        <bonaparte-dsl.version>1.6.3-SNAPSHOT</bonaparte-dsl.version>
+        <bonaparte-persistence.version>1.6.3-SNAPSHOT</bonaparte-persistence.version>
         <!-- public libraries -->
         <slf4j.version>1.7.5</slf4j.version>
         <eclipselink.version>2.4.2</eclipselink.version>
