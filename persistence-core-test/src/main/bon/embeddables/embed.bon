@@ -23,7 +23,7 @@ package embeddables {
     	(Address)   homeAddress;
     	(Address)	addressWork;
     	(Address)	extra;
-    	Unicode(80) List<3> addressLines properties unroll; 
+    	required Unicode(80) required List<3> addressLines properties unroll; 
     	(Address) List<3> evenMore properties unroll="x%03d";
     	(Add2)      myAdd2;
     }

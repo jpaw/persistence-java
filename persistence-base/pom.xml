@@ -27,6 +27,7 @@
         <tycho-version>0.18.1</tycho-version>
         <fornax-version>3.4.0</fornax-version>
         <xtend-version>2.4.3</xtend-version>
+        <xtext.version>2.4.3-SNAPSHOT</xtext.version>
     </properties>
 
     <licenses>
@@ -49,6 +50,40 @@
         </developer>
     </developers>
 
+    <repositories>
+        <repository>
+            <id>xtend.repository</id>
+            <name>Xtend Repository</name>
+            <url>http://build.eclipse.org/common/xtend/maven/</url>
+        </repository>
+        <repository>
+            <id>xtend.snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>xtend</id>
+            <url>http://build.eclipse.org/common/xtend/maven/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>xtend.snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+    
     <build>
         <pluginManagement>
             <plugins>
@@ -162,6 +197,149 @@
                         <charset>UTF-8</charset>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>1.2</version>
+                    <executions>
+                        <execution>
+                            <id>enforce-no-snapshots</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>enforce</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <rules>
+                            <requireReleaseDeps>
+                                <message>No snapshots dependencies
+                                    allowed on the master branch!</message>
+                                <searchTransitive>true</searchTransitive>
+                                <failWhenParentIsSnapshot>true</failWhenParentIsSnapshot>
+                                <onlyWhenRelease>true</onlyWhenRelease>
+                            </requireReleaseDeps>
+                        </rules>
+                        <fail>true</fail>
+                        <failFast>true</failFast>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.eclipse.xtend</groupId>
+                    <artifactId>xtend-maven-plugin</artifactId>
+                    <version>${xtend.version}</version>
+                    <executions>
+                        <execution>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>compile</goal>
+                                <goal>testCompile</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${project.basedir}/src/main/xtend-gen</outputDirectory>
+                                <testOutputDirectory>${project.basedir}/src/test/xtend-gen</testOutputDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.eclipse.xtext</groupId>
+                    <artifactId>xtext-maven-plugin</artifactId>
+                    <version>${xtext.version}</version>
+                    <executions>
+                        <execution>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>generate</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <sourceRoots>
+                            <sourceRoot>${project.basedir}/src/main/bon</sourceRoot>
+                        </sourceRoots>
+                        <languages>
+                            <language>
+                                <setup>de.jpaw.bonaparte.dsl.BonScriptStandaloneSetup</setup>
+                                <outputConfigurations>
+                                    <outputConfiguration>
+                                        <outputDirectory>${project.basedir}/src/generated</outputDirectory>
+                                        <!--<javaSupport>false</javaSupport> -->
+                                    </outputConfiguration>
+                                </outputConfigurations>
+                            </language>
+                            <language>
+                                <setup>de.jpaw.persistence.dsl.BDDLStandaloneSetup</setup>
+                                <outputConfigurations>
+                                    <outputConfiguration>
+                                        <outputDirectory>${project.basedir}/src/generated</outputDirectory>
+                                        <!--<javaSupport>false</javaSupport> -->
+                                    </outputConfiguration>
+                                </outputConfigurations>
+                            </language>
+                        </languages>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>de.jpaw.bonaparte-dsl</groupId>
+                            <artifactId>de.jpaw.bonaparte.dsl</artifactId>
+                            <version>${bonaparte-plugin-version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>de.jpaw.bonaparte-dsl</groupId>
+                            <artifactId>de.jpaw.persistence.dsl</artifactId>
+                            <version>${bonaparte-plugin-version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>commons-lang</groupId>
+                            <artifactId>commons-lang</artifactId>
+                            <version>2.6</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.eclipse.xtext</groupId>
+                                        <artifactId>xtext-maven-plugin</artifactId>
+                                        <versionRange>[2.4.0,]</versionRange>
+                                        <goals>
+                                            <goal>generate</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore/>
+                                        <!-- 
+                                        <execute>
+                                            <runOnIncremental>true</runOnIncremental>
+                                            <runOnConfiguration>true</runOnConfiguration>
+                                        </execute>
+                                         -->
+                                    </action>
+                                </pluginExecution>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-enforcer-plugin</artifactId>
+                                        <versionRange>[1.2.0,]</versionRange>
+                                        <goals>
+                                            <goal>enforce</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore/>
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
 
@@ -169,28 +347,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>1.2</version>
-                <executions>
-                    <execution>
-                        <id>enforce-no-snapshots</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <rules>
-                        <requireReleaseDeps>
-                            <message>No snapshots dependencies allowed on the master branch!</message>
-                            <searchTransitive>true</searchTransitive>
-                            <failWhenParentIsSnapshot>true</failWhenParentIsSnapshot>
-                            <onlyWhenRelease>true</onlyWhenRelease>
-                        </requireReleaseDeps>
-                    </rules>
-                    <fail>true</fail>
-                    <failFast>true</failFast>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
