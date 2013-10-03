@@ -16,7 +16,7 @@
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
         <bonaparte.version>1.6.3-SNAPSHOT</bonaparte.version>
-        <bonaparte-dsl.version>1.6.3-SNAPSHOT</bonaparte-dsl.version>
+        <bonaparte-plugin-version>1.6.3-SNAPSHOT</bonaparte-plugin-version>
         <bonaparte-persistence.version>1.6.3-SNAPSHOT</bonaparte-persistence.version>
         <!-- public libraries -->
         <slf4j.version>1.7.5</slf4j.version>
@@ -416,11 +416,9 @@
     </reporting>
 
     <modules>
-        <module>generator/pom.xml</module>
         <module>../persistence-core/pom.xml</module>
         <module>../persistence-hibernate/pom.xml</module>
         <module>../persistence-eclipselink/pom.xml</module>
-        <module>../persistence-core-test/generator/pom.xml</module>
         <module>../persistence-core-test/pom.xml</module>
     </modules>
 
