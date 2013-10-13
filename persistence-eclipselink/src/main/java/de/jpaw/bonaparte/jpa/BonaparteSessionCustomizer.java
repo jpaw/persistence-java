@@ -12,14 +12,18 @@ import org.eclipse.persistence.mappings.foundation.AbstractDirectMapping;
 import org.eclipse.persistence.sessions.Session;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.jpaw.util.ByteArray;
 
 public class BonaparteSessionCustomizer implements SessionCustomizer {
+    private static final Logger LOGGER = LoggerFactory.getLogger(BonaparteSessionCustomizer.class);
 
     private Map<Class<?>, Converter> convertersPerType;
 
     public BonaparteSessionCustomizer() {
+        LOGGER.info("BonaparteSessionCustomizer created");
         convertersPerType = new HashMap<Class<?>, Converter>();
         convertersPerType.put(ByteArray.class, new ByteArrayConverter());
         convertersPerType.put(LocalDateTime.class, new JodaLocalDateTimeConverter());
@@ -29,6 +33,7 @@ public class BonaparteSessionCustomizer implements SessionCustomizer {
     @Override
     @SuppressWarnings("rawtypes")
     public void customize(Session session) throws Exception {
+        LOGGER.info("customizing session");
         // Iterate through the meta-data of all known JPA entities
         Map<Class, ClassDescriptor> descriptors = session.getDescriptors();
         for (ClassDescriptor descriptor : descriptors.values()) {

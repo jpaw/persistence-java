@@ -1,0 +1,12 @@
+package testEnums {
+    enum Color { RED, GREEN, BLUE }
+    enum AlphaColor { RED="R", GREEN="G", BLUE="B" }
+    enum AlphaColorWithNull { RED="R", GREEN="G", BLUE="B", TRANSPARENT="" }
+    
+    class EnumTests BeanVal {
+        Integer key;
+        enum Color color1;
+        enum AlphaColor color2;
+        enum AlphaColorWithNull enumNullable;
+    }
+}
