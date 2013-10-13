@@ -33,7 +33,7 @@ public class BonaparteSessionCustomizer implements SessionCustomizer {
     @Override
     @SuppressWarnings("rawtypes")
     public void customize(Session session) throws Exception {
-        LOGGER.info("customizing session");
+        LOGGER.debug("customizing session");
         // Iterate through the meta-data of all known JPA entities
         Map<Class, ClassDescriptor> descriptors = session.getDescriptors();
         for (ClassDescriptor descriptor : descriptors.values()) {
