@@ -4,7 +4,22 @@ import java.util.Map;
 
 /** Various utility methods to retrieve properties from the persistence.xml.
  * Some cases are straightforward, others depend on the OR mapper used.
+ * 
+ * A bit portability issue is, that the availability of these properties is OR mapper specific:
+ * 
+ * With Eclipselink, the properties obtained from the EMF are empty, while the properties obtained from an EntityManager 1:1 match the persistence.xml entries
+ *  (including the database JDBC password!) 
+ * 
+ * With Hibernate, the properties obtained from the EMF are a mixture of system properties implicit internal properties plus the provided ones,
+ *  however the JDBC password is asterisked out. (****)
+ * From the EntityManager, we get 5 properties here (as of Hibernate 4.2.2):
+ * - javax.persistence.lock.timeout
+ * - javax.persistence.cache.storeMode
+ * - javax.persistence.cache.retrieveMode
+ * - javax.persistence.lock.scope
+ * - org.hibernate.flushMode
  *
+ * Additionally supplied own properties can be retrieved for both OR mappers.
  */
 public class PersistenceUnitProps {
 
