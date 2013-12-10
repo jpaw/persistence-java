@@ -8,6 +8,7 @@ import de.jpaw.bonaparte.core.BonaPortable;
 import de.jpaw.bonaparte.core.ByteArrayComposer;
 import de.jpaw.bonaparte.core.ByteArrayParser;
 import de.jpaw.bonaparte.core.MessageParserException;
+import de.jpaw.bonaparte.core.StaticMeta;
 
 public class BonaPortableConverter implements Converter {
 
@@ -32,7 +33,7 @@ public class BonaPortableConverter implements Converter {
             return null;
         } else {
             ByteArrayComposer composer = new ByteArrayComposer();
-            composer.addField((BonaPortable) objectValue);
+            composer.addField(StaticMeta.OUTER_BONAPORTABLE, (BonaPortable) objectValue);
             return composer.getBytes();
         }
     }
