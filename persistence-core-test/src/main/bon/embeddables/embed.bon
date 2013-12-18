@@ -31,4 +31,8 @@ package embeddables {
     class Tracking {
     	Ascii(8)	userId;
     }
+    
+    class PersonPlusExtra extends Person {
+        Long        extraLong;
+    }
 }

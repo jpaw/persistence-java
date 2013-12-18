@@ -21,12 +21,17 @@ package embedTest owner jpaw prefix jp {
     embeddable Add2Entity is Add2 {}
 	
 	@Generator(noMapper)
-	entity PersonEntity category cfg is Person {
+	entity PersonEntity category cfg is Person inheritance tablePerClass {
 		pk (personKey)
 		@Embeddable AddressEntity for homeAddress
 		@Embeddable AddressEntity for extra prefix ex suffix Tra
 		@Embeddable AddressEntity for addressWork
         @Embeddable AddressEntity for evenMore
 		@Embeddable Add2Entity for myAdd2
+	}
+	
+    @Generator(noMapper)
+    entity PersonPlusExtraEntity category cfg is PersonPlusExtra inheritance tablePerClass {
+        pk (personKey)
 	}
 }
