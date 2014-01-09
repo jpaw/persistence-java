@@ -4,6 +4,10 @@ package embeddables {
     properties unroll;
     type city  is Unicode(30);
     
+    enum Color {
+    	RED="R", BLUE="B", GREEN="G"
+    }
+    
     // standard Embeddable
     final class Address {
     	required Unicode(20)	street;
@@ -34,5 +38,10 @@ package embeddables {
     
     class PersonPlusExtra extends Person {
         Long        extraLong;
+    }
+    
+    class EnumArrayUnrolled {
+    	Long key;
+    	Enum Color List<5> colorArray properties unroll;
     }
 }

@@ -34,4 +34,9 @@ package embedTest owner jpaw prefix jp {
     entity PersonPlusExtraEntity category cfg is PersonPlusExtra inheritance tablePerClass {
         pk (personKey)
 	}
+	
+    @Generator(noMapper)
+    entity EnumArrayUnrolledEntity category cfg is EnumArrayUnrolled inheritance tablePerClass {
+        pk (key)
+	}
 }
