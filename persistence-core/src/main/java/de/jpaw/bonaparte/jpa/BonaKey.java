@@ -16,7 +16,6 @@
 package de.jpaw.bonaparte.jpa;
 
 import java.io.Serializable;
-import de.jpaw.util.ApplicationException;
 
 /**
  * Defines the key related methods a JPA entity class implements.
@@ -35,10 +34,9 @@ public interface BonaKey<K extends Serializable> {
     public Class<K> get$KeyClass();
     /** Gets a new message object initialized with the Entity classes data.
      *
-     * @throws EnumException (if key contains an enum), but for future extensions, the more generic ApplicationException is declared.
      * @return a new object of the base class initialized with the data of this instance.
      */
-    public K get$Key() throws ApplicationException;
+    public K get$Key();
     public void set$Key(K _d);
 
 }
