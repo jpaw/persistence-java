@@ -4,7 +4,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>persistence-base</artifactId>
-    <version>1.7.7-SNAPSHOT</version>
+    <version>1.8.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>PERSISTENCE common configuration (parent pom)</name>
@@ -15,19 +15,19 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
-        <bonaparte.version>1.7.7-SNAPSHOT</bonaparte.version>
-        <bonaparte-plugin-version>1.7.7-SNAPSHOT</bonaparte-plugin-version>
-        <bonaparte-persistence.version>1.7.7-SNAPSHOT</bonaparte-persistence.version>
+        <bonaparte.version>1.8.0-SNAPSHOT</bonaparte.version>
+        <bonaparte-plugin-version>1.8.0-SNAPSHOT</bonaparte-plugin-version>
+        <bonaparte-persistence.version>1.8.0-SNAPSHOT</bonaparte-persistence.version>
         <!-- public libraries -->
         <slf4j.version>1.7.7</slf4j.version>
         <eclipselink.version>2.5.1</eclipselink.version>    <!-- 2.4.x = JPA 2.0, 2.5.x = JPA 2.1 -->
         <hibernate.version>4.2.2.Final</hibernate.version>  <!-- 4.2.1 introduces official support for Postgres 9.2 -->
         <testng.version>5.12.1</testng.version>
-        <!-- XText / Tycho -->
-        <tycho-version>0.18.1</tycho-version>
-        <fornax-version>3.4.0</fornax-version>
-        <xtend.version>2.5.1</xtend.version>            <!-- UPTODATE 2013-11-21 -->
-        <xtext.version>2.5.1</xtext.version>            <!-- UPTODATE 2013-11-21 -->
+        <!-- XText / Tycho: not used here
+        <tycho-version>0.19</tycho-version>
+        <fornax-version>3.4.0</fornax-version>  -->
+        <xtend.version>2.5.4</xtend.version>            <!-- UPTODATE 2013-11-21 -->
+        <xtext.version>2.5.4</xtext.version>            <!-- UPTODATE 2013-11-21 -->
     </properties>
 
     <licenses>
