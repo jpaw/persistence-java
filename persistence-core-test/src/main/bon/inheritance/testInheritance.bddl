@@ -17,7 +17,7 @@ package testInheritanceEntities owner scott prefix test {
     }
 
     
-    entity InheritanceTestsEntity category tests is MyData {
+    entity InheritanceTstEntity category tests is MyData {
         pk (key)
     }       
 }

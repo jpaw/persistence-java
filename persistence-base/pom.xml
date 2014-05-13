@@ -23,9 +23,6 @@
         <eclipselink.version>2.5.1</eclipselink.version>    <!-- 2.4.x = JPA 2.0, 2.5.x = JPA 2.1 -->
         <hibernate.version>4.2.2.Final</hibernate.version>  <!-- 4.2.1 introduces official support for Postgres 9.2 -->
         <testng.version>5.12.1</testng.version>
-        <!-- XText / Tycho: not used here
-        <tycho-version>0.19</tycho-version>
-        <fornax-version>3.4.0</fornax-version>  -->
         <xtend.version>2.5.4</xtend.version>            <!-- UPTODATE 2013-11-21 -->
         <xtext.version>2.5.4</xtext.version>            <!-- UPTODATE 2013-11-21 -->
     </properties>
