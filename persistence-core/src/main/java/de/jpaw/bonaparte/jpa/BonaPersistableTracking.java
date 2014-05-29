@@ -20,16 +20,10 @@ import de.jpaw.bonaparte.core.BonaPortable;
 /**
  * Defines the methods a JPA entity class implements.
  * The classes and their implementations are usually created by the bonaparte add-on DSL BDDL.
- * This is an interface using generics for KEY and TRACKING types. If there is no tracking, "Object" should be used instead.
+ * This is an interface using generics for the TRACKING type. If there is no tracking, "Object" should be used instead.
  *
  * @author Michael Bischoff
  *
  **/
-public interface BonaPersistableTracking<T extends BonaPortable>
-        extends BonaTracking<T>, BonaPersistableBase {
-    
-    /** Merges the contents of one entity instance into the current one.
-     * Performs a shallow copy.
-     */
-    //public <E extends BonaPersistableTracking<T>> E mergeFrom(E source);
+public interface BonaPersistableTracking<T extends BonaPortable> extends BonaTracking<T>, BonaPersistableBase {
 }
