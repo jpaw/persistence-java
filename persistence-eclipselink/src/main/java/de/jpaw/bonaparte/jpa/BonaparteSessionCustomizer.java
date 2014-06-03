@@ -12,6 +12,7 @@ import org.eclipse.persistence.mappings.foundation.AbstractDirectMapping;
 import org.eclipse.persistence.sessions.Session;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
+import org.joda.time.LocalTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,6 +28,7 @@ public class BonaparteSessionCustomizer implements SessionCustomizer {
         convertersPerType = new HashMap<Class<?>, Converter>();
         convertersPerType.put(ByteArray.class, new ByteArrayConverter());
         convertersPerType.put(LocalDateTime.class, new JodaLocalDateTimeConverter());
+        convertersPerType.put(LocalTime.class, new JodaLocalTimeConverter());
         convertersPerType.put(LocalDate.class, new JodaLocalDateConverter());
     }
 

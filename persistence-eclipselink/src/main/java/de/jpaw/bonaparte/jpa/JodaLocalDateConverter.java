@@ -22,7 +22,7 @@ public class JodaLocalDateConverter implements Converter {
 
     @Override
     public Object convertObjectValueToDataValue(Object objectValue, Session session) {
-        return objectValue == null ? null : DayTime.toGregorianCalendar((LocalDate) objectValue);
+        return objectValue == null ? null : DayTime.toCalendar((LocalDate) objectValue);
     }
 
     @Override
