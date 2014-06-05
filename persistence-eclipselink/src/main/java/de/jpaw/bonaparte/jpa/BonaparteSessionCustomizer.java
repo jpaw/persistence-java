@@ -10,6 +10,7 @@ import org.eclipse.persistence.mappings.DatabaseMapping;
 import org.eclipse.persistence.mappings.converters.Converter;
 import org.eclipse.persistence.mappings.foundation.AbstractDirectMapping;
 import org.eclipse.persistence.sessions.Session;
+import org.joda.time.Instant;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
 import org.joda.time.LocalTime;
@@ -30,6 +31,7 @@ public class BonaparteSessionCustomizer implements SessionCustomizer {
         convertersPerType.put(LocalDateTime.class, new JodaLocalDateTimeConverter());
         convertersPerType.put(LocalTime.class, new JodaLocalTimeConverter());
         convertersPerType.put(LocalDate.class, new JodaLocalDateConverter());
+        convertersPerType.put(Instant.class, new JodaInstantConverter());
     }
 
     @Override
