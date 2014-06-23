@@ -45,7 +45,7 @@ public interface BonaTracking <T extends BonaPortable> {
      *
      * @return a new object of the base class initialized with the tracking data of this instance, or null if no tracking data exists.
      */
-    public T get$Tracking() throws ApplicationException;
+    public T get$Tracking();
     public void set$Tracking(T _d);
 
 }
