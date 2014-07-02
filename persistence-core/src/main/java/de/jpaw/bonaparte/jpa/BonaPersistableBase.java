@@ -30,6 +30,9 @@ public interface BonaPersistableBase {
      */
 	public int get$rtti();
 	
+    /** Method that allows generic proxy resolution by returning {@code this}. */
+    public BonaPersistableBase get$Self();
+    
     /** method to activate or deactivate a row */
     public void set$Active(boolean _a);
     /** method to query activeness */
