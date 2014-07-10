@@ -1,4 +1,10 @@
 package examples.history {
+    properties unroll;
+    
+    final class EmbedEC {
+        Long                value;
+        Unicode(20) List<3> text properties unroll;
+    }
     
     final class EKey {
     	required Ascii(8)   key1;
@@ -14,5 +20,7 @@ package examples.history {
         required Ascii(8)   key1;
         required Integer    key2;
         Ascii(80)           data;
+        (EmbedEC)			myEc;
+        Ascii(8) List<3>	text properties unroll;
     }
 }
