@@ -7,20 +7,20 @@ package examples.history {
     }
     
     final class EKey {
-    	required Ascii(8)   key1;
-    	required Integer	key2;
+        required Ascii(8)   key1;
+        required Integer    key2;
     }
     
     class EDto {
-    	(EKey)				myCompositeKey;
-    	Ascii(80)			data;
+        (EKey)              myCompositeKey;
+        Ascii(80)           data;
     }
     
     class EDto2 {
         required Ascii(8)   key1;
         required Integer    key2;
         Ascii(80)           data;
-        (EmbedEC)			myEc;
-        Ascii(8) List<3>	text properties unroll;
+        (EmbedEC)           myEc;
+        Ascii(8) List<3>    text properties unroll;
     }
 }

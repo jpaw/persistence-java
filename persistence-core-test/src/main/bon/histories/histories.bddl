@@ -6,14 +6,14 @@ package examples.^history.entities owner scott prefix this {
         demorole: SELECT,INSERT,UPDATE,DELETE;
     }
     category testshis {
-    	historyColumns history_seq_no, history_change_type
-       	grants rw
+        historyColumns history_seq_no, history_change_type
+        grants rw
     }
     category tests {
-    	history testshis
-    	requiresPK
-       	grants rw
-       	
+        history testshis
+        requiresPK
+        grants rw
+        
     }
 
     embeddable EKeyEntity is EKey {}
@@ -32,7 +32,7 @@ package examples.^history.entities owner scott prefix this {
     
     // example of an entity with an explicit embeddable primary key
     entity EmbeddedPkEntity category tests is EDto {
-    	@Embeddable EKeyEntity for myCompositeKey is pk
+        @Embeddable EKeyEntity for myCompositeKey is pk
     }
     
     // example of an entity with a multi field primary key - usind an ID class

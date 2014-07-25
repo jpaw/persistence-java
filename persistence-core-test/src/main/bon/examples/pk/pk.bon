@@ -1,13 +1,13 @@
 package examples.pkey {
     
     final class EKey {
-    	required Ascii(8)   key1;
-    	required Integer	key2;
+        required Ascii(8)   key1;
+        required Integer    key2;
     }
     
     class EDto {
-    	(EKey)				myCompositeKey;
-    	Ascii(80)			data;
+        (EKey)              myCompositeKey;
+        Ascii(80)           data;
     }
     
     class EDto2 {

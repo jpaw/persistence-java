@@ -14,6 +14,6 @@ package datetimeDB owner jpaw prefix xxx {
     category cfg { requiresPK grants rw }
     
     entity SampleEntity category cfg is Sample {
-    	pk (key)
+        pk (key)
     }
 }

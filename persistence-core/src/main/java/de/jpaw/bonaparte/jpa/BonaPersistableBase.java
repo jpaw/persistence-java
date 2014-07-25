@@ -28,8 +28,8 @@ public interface BonaPersistableBase {
      *
      * @return some numeric value defined in the DSL.
      */
-	public int get$rtti();
-	
+    public int get$rtti();
+    
     /** Method that allows generic proxy resolution by returning {@code this}. */
     public BonaPersistableBase get$Self();
     

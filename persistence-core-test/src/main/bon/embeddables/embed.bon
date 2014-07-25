@@ -5,14 +5,14 @@ package embeddables {
     type city  is Unicode(30);
     
     enum Color {
-    	RED="R", BLUE="B", GREEN="G"
+        RED="R", BLUE="B", GREEN="G"
     }
     
     // standard Embeddable
     final class Address {
-    	required Unicode(20)	street;
-    	optional Ascii(10) zipCode;
-    	city city;
+        required Unicode(20)    street;
+        optional Ascii(10) zipCode;
+        city city;
     }
     
     // Embeddable with unrolled list inside
@@ -22,18 +22,18 @@ package embeddables {
     }
     
     class Person {
-    	Long personKey;
-    	Unicode(20) name;
-    	(Address)   homeAddress;
-    	(Address)	addressWork;
-    	(Address)	extra;
-    	required Unicode(80) required List<3> addressLines properties unroll; 
-    	(Address) List<3> evenMore properties unroll="x%03d";
-    	(Add2)      myAdd2;
+        Long personKey;
+        Unicode(20) name;
+        (Address)   homeAddress;
+        (Address)   addressWork;
+        (Address)   extra;
+        required Unicode(80) required List<3> addressLines properties unroll; 
+        (Address) List<3> evenMore properties unroll="x%03d";
+        (Add2)      myAdd2;
     }
     
     class Tracking {
-    	Ascii(8)	userId;
+        Ascii(8)    userId;
     }
     
     class PersonPlusExtra extends Person {
@@ -41,7 +41,7 @@ package embeddables {
     }
     
     class EnumArrayUnrolled {
-    	Long key;
-    	Enum Color List<5> colorArray properties unroll;
+        Long key;
+        Enum Color List<5> colorArray properties unroll;
     }
 }

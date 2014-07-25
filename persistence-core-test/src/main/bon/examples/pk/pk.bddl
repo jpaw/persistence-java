@@ -27,7 +27,7 @@ package examples.pkey.entities owner scott prefix pkey {
     
     // example of an entity with an explicit embeddable primary key
     entity EmbeddedPkEntity category tests is EDto {
-    	@Embeddable EKeyEntity for myCompositeKey is pk
+        @Embeddable EKeyEntity for myCompositeKey is pk
     }
     
     // example of an entity with a multi field primary key - usind an ID class
