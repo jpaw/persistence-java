@@ -16,7 +16,6 @@
 package de.jpaw.bonaparte.jpa;
 
 import de.jpaw.bonaparte.core.BonaPortable;
-import de.jpaw.util.ApplicationException;
 
 /**
  * Defines the tracking data related methods a JPA entity class implements.
