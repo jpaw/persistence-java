@@ -21,7 +21,7 @@ public class BonaPortableConverter implements Converter {
         }
         ByteArrayParser parser = new ByteArrayParser((byte[]) dataValue, 0, -1);
         try {
-            return parser.readObject("(JPA)", BonaPortable.class, true, true);
+            return parser.readObject(StaticMeta.OUTER_BONAPORTABLE, BonaPortable.class);
         } catch (MessageParserException e) {
             throw new RuntimeException(e);
         }
