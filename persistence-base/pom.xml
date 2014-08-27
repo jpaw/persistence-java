@@ -20,7 +20,7 @@
         <bonaparte-persistence.version>2.3.5-SNAPSHOT</bonaparte-persistence.version>
         <!-- public libraries -->
         <slf4j.version>1.7.7</slf4j.version>
-        <eclipselink.version>2.5.1</eclipselink.version>    <!-- 2.4.x = JPA 2.0, 2.5.x = JPA 2.1 -->
+        <eclipselink.version>2.5.2</eclipselink.version>    <!-- 2.4.x = JPA 2.0, 2.5.x = JPA 2.1 -->
         <hibernate.version>4.2.2.Final</hibernate.version>  <!-- 4.2.1 introduces official support for Postgres 9.2 -->
         <testng.version>5.12.1</testng.version>
         <xtend.version>2.6.2</xtend.version>            <!-- UPTODATE 2014-07-03 -->
