@@ -18,8 +18,8 @@ public class DeserializeExceptionHandler {
         // first, dump out a bit of information so we can analyze better...
         int badPosition = e.getCharacterIndex();
         LOG.error("Serialized data is corrupt for entity {} with Key {} at byte position {}: {}",
-                clazz.getSimpleName(), entityKey.toString(), badPosition, e.getSpecificDescription());
+                clazz.getSimpleName(), entityKey.toString(), badPosition, e.toString());
         LOG.error(ByteUtil.dump(offendingData, badPosition - DUMP_BYTES_BEFORE, badPosition + DUMP_BYTES_AFTER));
-        throw new IllegalArgumentException("Cannot parse serialized data for " + fieldname + ": " + e.getSpecificDescription());
+        throw new IllegalArgumentException("Cannot parse serialized data for " + fieldname + ": " + e.getMessage());
     }
 }

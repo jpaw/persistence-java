@@ -1,3 +1,4 @@
+import adapters.fixedpoint.*
 
 package embeddables {
     default unsigned trim noControlChars;
@@ -43,5 +44,10 @@ package embeddables {
     class EnumArrayUnrolled {
         Long key;
         Enum Color List<5> colorArray properties unroll;
+    }
+    
+    class WithExternalClass {
+        Long        key;
+        (Millis)    millis;
     }
 }

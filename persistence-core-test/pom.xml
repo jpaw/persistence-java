@@ -17,6 +17,11 @@
     <dependencies>
         <dependency>
             <groupId>de.jpaw</groupId>
+            <artifactId>bonaparte-adapters</artifactId>
+            <version>${bonaparte.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.jpaw</groupId>
             <artifactId>persistence-core</artifactId>
             <version>${bonaparte-persistence.version}</version>
         </dependency>
