@@ -18,7 +18,7 @@
         <dependency>
             <groupId>de.jpaw</groupId>
             <artifactId>persistence-core</artifactId>
-            <version>${bonaparte-persistence.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>

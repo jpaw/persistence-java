@@ -23,17 +23,17 @@
         <dependency>
             <groupId>de.jpaw</groupId>
             <artifactId>persistence-core</artifactId>
-            <version>${bonaparte-persistence.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>de.jpaw</groupId>
             <artifactId>persistence-eclipselink</artifactId>
-            <version>${bonaparte-persistence.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>de.jpaw</groupId>
             <artifactId>persistence-hibernate</artifactId>
-            <version>${bonaparte-persistence.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.validation</groupId>

@@ -17,14 +17,13 @@
         <!-- Own dependencies -->
         <bonaparte.version>2.4.2-SNAPSHOT</bonaparte.version>
         <bonaparte-plugin-version>2.4.2-SNAPSHOT</bonaparte-plugin-version>
-        <bonaparte-persistence.version>2.4.2-SNAPSHOT</bonaparte-persistence.version>
         <!-- public libraries -->
         <slf4j.version>1.7.7</slf4j.version>
         <eclipselink.version>2.5.2</eclipselink.version>    <!-- 2.4.x = JPA 2.0, 2.5.x = JPA 2.1 -->
         <hibernate.version>4.2.2.Final</hibernate.version>  <!-- 4.2.1 introduces official support for Postgres 9.2 -->
         <testng.version>5.12.1</testng.version>
-        <xtend.version>2.7.0</xtend.version>            <!-- UPTODATE 2014-09-03 -->
-        <xtext.version>2.7.0</xtext.version>            <!-- UPTODATE 2014-09-03 -->
+        <xtend.version>2.7.1</xtend.version>            <!-- UPTODATE 2014-09-03 -->
+        <xtext.version>2.7.1</xtext.version>            <!-- UPTODATE 2014-09-03 -->
     </properties>
 
     <licenses>
@@ -237,7 +236,7 @@
                                 </outputConfigurations>
                             </language>
                             <language>
-                                <setup>de.jpaw.persistence.dsl.BDDLStandaloneSetup</setup>
+                                <setup>de.jpaw.bonaparte.jpa.dsl.BDDLStandaloneSetup</setup>
                                 <outputConfigurations>
                                     <outputConfiguration>
                                         <outputDirectory>${project.basedir}/src/generated</outputDirectory>
@@ -255,7 +254,7 @@
                         </dependency>
                         <dependency>
                             <groupId>de.jpaw.bonaparte-dsl</groupId>
-                            <artifactId>de.jpaw.persistence.dsl</artifactId>
+                            <artifactId>de.jpaw.bonaparte.jpa.dsl</artifactId>
                             <version>${bonaparte-plugin-version}</version>
                         </dependency>
                         <dependency>
