@@ -9,7 +9,7 @@ import org.eclipse.persistence.mappings.foundation.AbstractDirectMapping;
 import org.eclipse.persistence.sessions.Session;
 import org.joda.time.LocalTime;
 
-import de.jpaw.util.DayTime;
+import de.jpaw.bonaparte.util.DayTime;
 
 public class JodaLocalTimeConverter implements Converter {
 
