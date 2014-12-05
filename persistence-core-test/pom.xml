@@ -5,14 +5,14 @@
     <parent>
         <groupId>de.jpaw</groupId>
         <artifactId>persistence-base</artifactId>
-        <version>3.0.1</version>
+        <version>3.1.0-SNAPSHOT</version>
         <relativePath>../persistence-base</relativePath>
     </parent>
 
     <artifactId>persistence-core-test</artifactId>
     <packaging>jar</packaging>
 
-    <name>PERSISTENCE core library extended unit tests</name>
+    <description>PERSISTENCE core library extended unit tests</description>
 
     <dependencies>
         <dependency>
