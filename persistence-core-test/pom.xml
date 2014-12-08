@@ -12,7 +12,7 @@
     <artifactId>persistence-core-test</artifactId>
     <packaging>jar</packaging>
 
-    <description>PERSISTENCE core library extended unit tests</description>
+    <description>PERSISTENCE (JPA) core library extended unit tests</description>
 
     <dependencies>
         <dependency>

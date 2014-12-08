@@ -12,7 +12,7 @@
     <artifactId>persistence-hibernate</artifactId>
     <packaging>jar</packaging>
 
-    <name>PERSISTENCE Usertypes for Hibernate</name>
+    <description>PERSISTENCE (JPA) Usertypes for Hibernate</description>
 
     <dependencies>
         <dependency>
