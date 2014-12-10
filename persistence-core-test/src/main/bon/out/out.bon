@@ -1,4 +1,4 @@
-package (com.arvatosystems.t9t) out {
+package (de.jpaw.t9t) out {
     default private unsigned trim noControlChars;
     type f42Ref is Long;
     type messageId is Binary(16);

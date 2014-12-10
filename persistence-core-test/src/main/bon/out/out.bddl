@@ -1,17 +1,14 @@
 import out.*
 
 @Generator(noMapper)
-package (com.arvatosystems.t9t) out.be.entities owner fortytwo prefix p28 {
+package (de.jpaw.t9t) out.be.entities owner fortytwo prefix p28 {
     fields private;
     
     category ^int {}
     
     entity OutboundMessageEntity category ^int is OutboundMessageDTO {
-//        tenantClass InternalTenantRef
         pk is OutboundMessageKey
         index (messageId)
         index (sinkRef, sourceRecordNo)  // correct order of records per file
-//        index (tenantId, recordId)
-//        @ManyToOne SinkEntity sink LAZY for (sinkRef)
     }
 }
