@@ -17,8 +17,7 @@
     <dependencies>
         <dependency>
             <groupId>de.jpaw</groupId>
-            <artifactId>bonaparte-adapters</artifactId>
-            <version>${bonaparte.version}</version>
+            <artifactId>bonaparte-adapters-scalar</artifactId>
         </dependency>
         <dependency>
             <groupId>de.jpaw</groupId>
