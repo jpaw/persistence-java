@@ -21,6 +21,10 @@
         </dependency>
         <dependency>
             <groupId>de.jpaw</groupId>
+            <artifactId>bonaparte-adapters-money-fp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>de.jpaw</groupId>
             <artifactId>persistence-core</artifactId>
             <version>${project.version}</version>
         </dependency>
