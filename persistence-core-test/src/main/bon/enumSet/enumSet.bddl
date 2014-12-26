@@ -1,0 +1,40 @@
+// Persistence test entities for the persistence DSL, to show bonaparte and BDDL syntax within the same file
+
+import testEnumSet.*
+
+default
+    tablenamepattern "test_(entity)"
+    tablespacepattern "system"
+    ;
+    
+package testEnumSet {
+    properties nullWhenZero;
+    
+    enum Weekday { MONDAY="MON", TUESDAY="TUE", WEDNESDAY="WED", THURSDAY="THU", FRIDAY="FRI", SATURDAY="SAT", SUNDAY="SUN" }
+    enumset Weekdays is Weekday;
+
+    enum Alphabet { ALPHA="A", BRAVO="B", CHARLIE="C", DELTA="D", ECHO="E", FOXTROT="F" }
+    enumset <String> Letterset is Alphabet;
+         
+    class TypeWithEnums {
+        required Integer id;
+        required enumset Weekdays weekdays;
+        required enumset Weekdays nullableWeekdays properties nullWhenZero;
+        required enumset Letterset letters;
+        required enumset Letterset nullableLetters properties nullWhenZero;
+    }
+}
+
+package test2bddl owner scott prefix test {
+    grants rw {
+        demorole: SELECT,INSERT,UPDATE,DELETE;
+    }
+    
+    category tests {
+       grants rw
+    }
+
+    entity TypeWithEnumsEntity category tests is TypeWithEnums {
+        pk (id)
+    }       
+}
