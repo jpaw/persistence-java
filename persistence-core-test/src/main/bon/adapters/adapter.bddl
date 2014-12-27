@@ -28,13 +28,13 @@ package adapterTest owner jpaw prefix at {
    
     entity WithExternalClassEntity category cfg is WithExternalClass {
         pk (key)
-        @Embeddable MillisEntity for millis
+//        @Embeddable MillisEntity for millis
         
     }    
     
     entity WithAdapterExtEntity category cfg is WithAdapterExt {
         pk (key)
-        @Embeddable CurrEmbed   for currency
+//        @Embeddable CurrEmbed   for currency
         @Embeddable AmountEmbed for amounts
         
     }    
