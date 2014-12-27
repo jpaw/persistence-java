@@ -2,8 +2,8 @@ package testXenum {
     enum Color { RED, GREEN, BLUE }
     enum AlphaColor { RED="R", GREEN="G", BLUE="B" }
     enum AlphaColorWithNull { RED="R", GREEN="G", BLUE="B", TRANSPARENT="" }
-    xenum XColor is AlphaColor : 2
-    xenum XColorWithNull is AlphaColorWithNull
+    xenum XColor is AlphaColor : 2;
+    xenum XColorWithNull is AlphaColorWithNull;
        
     class EnumTests BeanVal {
         Integer key;

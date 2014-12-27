@@ -1,13 +1,40 @@
 package testEnums {
+    properties nullWhenZero;
+    
+    // numeric enum, enumset
     enum Color { RED, GREEN, BLUE }
+    enumset Colormap is Color;
+    
+    // alphabetic, 1 char / value, set uses numeric
     enum AlphaColor { RED="R", GREEN="G", BLUE="B" }
+    enumset AlphaColormap is AlphaColor;
+    
+    // alphabetic, 1 char / value, set uses String
+    enum Alphabet { ALPHA="A", BRAVO="B", CHARLIE="C", DELTA="D", ECHO="E", FOXTROT="F" }
+    enumset <String> Letterset is Alphabet;
+    
+    // enums with null mapping
     enum AlphaColorWithNull { RED="R", GREEN="G", BLUE="B", TRANSPARENT="" }
+    
+    // enums with multiple letters, set uses numeric (allowed!)
+    enum Weekday { MONDAY="MON", TUESDAY="TUE", WEDNESDAY="WED", THURSDAY="THU", FRIDAY="FRI", SATURDAY="SAT", SUNDAY="SUN" }
+    enumset Weekdays is Weekday;
+
+    xenum XColor is AlphaColor:1;
+    xenumset XColormap is XColor;
     
     class EnumTests BeanVal {
         Integer key;
         enum Color color1;
         enum AlphaColor color2;
         enum AlphaColorWithNull enumNullable;
+    }
+    class TypeWithEnums {
+        required Integer id;
+        required enumset Weekdays weekdays;
+        required enumset Weekdays nullableWeekdays properties nullWhenZero;
+        required enumset Letterset letters;
+        required enumset Letterset nullableLetters properties nullWhenZero;
     }
 }
 
