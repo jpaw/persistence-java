@@ -1,6 +1,6 @@
 package de.jpaw.bonaparte.jpa;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 import java.sql.Types;
 
 import org.eclipse.persistence.mappings.DatabaseMapping;
@@ -9,20 +9,18 @@ import org.eclipse.persistence.mappings.foundation.AbstractDirectMapping;
 import org.eclipse.persistence.sessions.Session;
 import org.joda.time.LocalDate;
 
-import de.jpaw.bonaparte.util.DayTime;
-
 public class JodaLocalDateConverter implements Converter {
 
     private static final long serialVersionUID = 1L;
 
     @Override
     public Object convertDataValueToObjectValue(Object dataValue, Session session) {
-        return dataValue == null ? null : LocalDate.fromDateFields((Timestamp) dataValue);
+        return dataValue == null ? null : LocalDate.fromDateFields((Date) dataValue);
     }
 
     @Override
     public Object convertObjectValueToDataValue(Object objectValue, Session session) {
-        return objectValue == null ? null : DayTime.toCalendar((LocalDate) objectValue);
+        return objectValue == null ? null : new Date(((LocalDate) objectValue).toDate().getTime());
     }
 
     @Override

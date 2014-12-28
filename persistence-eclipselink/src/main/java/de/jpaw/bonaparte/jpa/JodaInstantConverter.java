@@ -9,20 +9,18 @@ import org.eclipse.persistence.mappings.foundation.AbstractDirectMapping;
 import org.eclipse.persistence.sessions.Session;
 import org.joda.time.Instant;
 
-import de.jpaw.bonaparte.util.DayTime;
-
 public class JodaInstantConverter implements Converter {
 
     private static final long serialVersionUID = 1L;
 
     @Override
     public Object convertDataValueToObjectValue(Object dataValue, Session session) {
-        return dataValue == null ? null : new Instant((Timestamp) dataValue);
+        return dataValue == null ? null : new Instant(dataValue);       // Timestamp is a superclass of Date which is a valid input type
     }
 
     @Override
     public Object convertObjectValueToDataValue(Object objectValue, Session session) {
-        return objectValue == null ? null : DayTime.toCalendar((Instant) objectValue);
+        return objectValue == null ? null : new Timestamp(((Instant) objectValue).getMillis());
     }
 
     @Override

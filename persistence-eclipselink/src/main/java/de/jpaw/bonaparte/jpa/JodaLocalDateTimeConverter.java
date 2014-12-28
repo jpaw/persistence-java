@@ -9,8 +9,6 @@ import org.eclipse.persistence.mappings.foundation.AbstractDirectMapping;
 import org.eclipse.persistence.sessions.Session;
 import org.joda.time.LocalDateTime;
 
-import de.jpaw.bonaparte.util.DayTime;
-
 public class JodaLocalDateTimeConverter implements Converter {
 
     private static final long serialVersionUID = 1L;
@@ -22,7 +20,7 @@ public class JodaLocalDateTimeConverter implements Converter {
 
     @Override
     public Object convertObjectValueToDataValue(Object objectValue, Session session) {
-        return objectValue == null ? null : DayTime.toCalendar((LocalDateTime) objectValue);
+        return objectValue == null ? null : new Timestamp(((LocalDateTime) objectValue).toDate().getTime());
     }
 
     @Override
