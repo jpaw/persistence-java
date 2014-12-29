@@ -1,27 +1,31 @@
 package de.jpaw.bonaparte.jpa;
 
+import java.sql.Types;
+
 import org.eclipse.persistence.mappings.DatabaseMapping;
 import org.eclipse.persistence.mappings.converters.Converter;
+import org.eclipse.persistence.mappings.foundation.AbstractDirectMapping;
 import org.eclipse.persistence.sessions.Session;
 
 import de.jpaw.bonaparte.core.BonaPortable;
-import de.jpaw.bonaparte.core.ByteArrayComposer;
-import de.jpaw.bonaparte.core.ByteArrayParser;
 import de.jpaw.bonaparte.core.MessageParserException;
-import de.jpaw.bonaparte.core.StaticMeta;
+import de.jpaw.bonaparte.util.QuickConverter;
 
-public class BonaPortableConverter implements Converter {
+public class BonaPortableConverter<S> implements Converter {
+    private static final long serialVersionUID = 12469283476L;
 
-    private static final long serialVersionUID = 1L;
-
+    private final QuickConverter<S> myConverter;
+    private final boolean isText;
+    
+    BonaPortableConverter(QuickConverter<S> myConverter, boolean isText) {
+        this.myConverter = myConverter;
+        this.isText = isText;
+    }
+    
     @Override
     public Object convertDataValueToObjectValue(Object dataValue, Session session) {
-        if (dataValue == null) {
-            return null;
-        }
-        ByteArrayParser parser = new ByteArrayParser((byte[]) dataValue, 0, -1);
         try {
-            return parser.readObject(StaticMeta.OUTER_BONAPORTABLE, BonaPortable.class);
+            return myConverter.unmarshal((S)dataValue, BonaPortable.class);
         } catch (MessageParserException e) {
             throw new RuntimeException(e);
         }
@@ -29,17 +33,12 @@ public class BonaPortableConverter implements Converter {
 
     @Override
     public Object convertObjectValueToDataValue(Object objectValue, Session session) {
-        if (objectValue == null) {
-            return null;
-        } else {
-            ByteArrayComposer composer = new ByteArrayComposer();
-            composer.addField(StaticMeta.OUTER_BONAPORTABLE, (BonaPortable) objectValue);
-            return composer.getBytes();
-        }
+        return myConverter.marshal((BonaPortable)objectValue);
     }
 
     @Override
     public void initialize(DatabaseMapping mapping, Session session) {
+        ((AbstractDirectMapping) mapping).setFieldType(isText ? Types.NCLOB : Types.BLOB);
     }
 
     @Override
