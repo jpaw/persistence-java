@@ -6,14 +6,15 @@ package examples.^history.entities owner scott prefix this {
         demorole: SELECT,INSERT,UPDATE,DELETE;
     }
     category testshis {
+        tablenamepattern "t_his_(entity)" dropSuffix "_entity"
         historyColumns history_seq_no, history_change_type
         grants rw
     }
     category tests {
+        tablenamepattern "t_tst_(entity)" dropSuffix "_entity"
         history testshis
         requiresPK
         grants rw
-        
     }
 
     embeddable EKeyEntity is EKey {}

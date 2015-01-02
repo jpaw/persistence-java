@@ -3,7 +3,7 @@
 import tests23.*
 
 default
-    tablenamepattern "test_(entity)"
+    tablenamepattern "tests_(entity)" dropSuffix "_entity"
     tablespacepattern "system"
     ;
     
@@ -25,7 +25,7 @@ package test23bddl owner scott prefix test {
         pk (binKey)
     }       
     
-    entity DataWithAnotherNaturalKeyEntity category tests is DataWithAnotherNaturalKey {
+    entity DataWithAnotherNaturalKeyEntity category tests is DataWithAnotherNaturalKey tablename another_nat_key {
         pk is ParentKey
     }       
 }

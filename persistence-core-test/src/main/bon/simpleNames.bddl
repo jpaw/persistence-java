@@ -3,7 +3,7 @@
 import testsSimple.*
 
 default
-    tablenamepattern "tests_(entity)"
+    tablenamepattern "tests_(entity)" dropSuffix "_entity"
     tablespacepattern "system"
     ;
     

@@ -37,7 +37,7 @@ package test22bddl owner scott prefix test {
         pk (binKey)
     }       
     
-    entity DataWithAnotherNaturalKeyEntity category tests is DataWithAnotherNaturalKey {
+    entity DataWithAnotherNaturalKeyEntity category tests is DataWithAnotherNaturalKey tablename another_nat_key2 {
         pk is ParentKey
     }       
 }
