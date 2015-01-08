@@ -84,6 +84,8 @@ public class PersistenceUnitProps {
                 return DatabaseFlavour.DERBY;
             if ("MySQL".equals(db))
                 return DatabaseFlavour.MYSQL;
+            if ("com.sap.persistence.platform.database.HDBPlatform".equals(db))
+                return DatabaseFlavour.SAPHANA;
             return DatabaseFlavour.UNSUPPORTED;
         }
         dbo = properties.get("hibernate.dialect");
@@ -107,6 +109,10 @@ public class PersistenceUnitProps {
                 return DatabaseFlavour.MYSQL;
             if ("MySQL5InnoDBDialect".equals(db))
                 return DatabaseFlavour.MYSQL;
+            if ("HANARowStoreDialect".equals(db))       // requires Hibernate 4.3.x
+                return DatabaseFlavour.SAPHANA;
+            if ("HANAColumnStoreDialect".equals(db))    // requires Hibernate 4.3.x
+                return DatabaseFlavour.SAPHANA;
             return DatabaseFlavour.UNSUPPORTED;
         }
         return DatabaseFlavour.UNSUPPORTED;

@@ -18,5 +18,5 @@ package de.jpaw.bonaparte.jpa;
 
 /** Provides the strategy for one of the supported database vendors, as obtained from the persistence.xml */
 public enum DatabaseFlavour {
-    ORACLE, POSTGRES, MSSQLSERVER, H2, MYSQL, DERBY, DB2, UNSUPPORTED
+    ORACLE, POSTGRES, MSSQLSERVER, H2, MYSQL, DERBY, DB2, UNSUPPORTED, SAPHANA
 }
