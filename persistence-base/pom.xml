@@ -228,6 +228,7 @@
         <module>../persistence-bom/pom.xml</module>
         <module>../persistence-core/pom.xml</module>
         <module>../persistence-jpa21/pom.xml</module>
+        <module>../persistence-refs/pom.xml</module>
         <module>../persistence-hibernate/pom.xml</module>
         <module>../persistence-eclipselink/pom.xml</module>
         <module>../persistence-core-test/pom.xml</module>
