@@ -42,6 +42,11 @@
             </dependency>
             <dependency>
                 <groupId>de.jpaw</groupId>
+                <artifactId>persistence-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.jpaw</groupId>
                 <artifactId>persistence-refs</artifactId>
                 <version>${project.version}</version>
             </dependency>
