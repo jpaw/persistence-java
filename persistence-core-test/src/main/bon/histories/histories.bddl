@@ -19,23 +19,23 @@ package examples.^history.entities owner scott prefix this {
 
     embeddable EKeyEntity is EKey {}
     embeddable EmbedECEntity is EmbedEC {}
-    
+
     // example of an entity with a single field primary key
     entity OneFieldPkEntity category tests is EDto {
         pk (data)
     }
-    
+
     // example of an entity with a multi field primary key - implicit embeddable
     entity MultiFieldPkEntity category tests is EDto2 {
         pk (key1, key2)
         @Embeddable EmbedECEntity for myEc prefix ma
     }
-    
+
     // example of an entity with an explicit embeddable primary key
     entity EmbeddedPkEntity category tests is EDto {
         @Embeddable EKeyEntity for myCompositeKey is pk
     }
-    
+
     // example of an entity with a multi field primary key - usind an ID class
     entity IdClassPkEntity category tests is EDto2 {
         pk is EKey

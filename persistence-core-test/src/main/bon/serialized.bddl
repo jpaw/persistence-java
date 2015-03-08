@@ -6,28 +6,28 @@ default
     tablenamepattern "test_(entity)"
     tablespacepattern "system"
     ;
-    
+
 package tests2serialized {
     properties ^serialized, compact;
-    
+
     class SerData {
         Int             int1;
         Object          data properties ^serialized;
         (SerData)       moreData properties ^serialized, compact;
     }
-    
+
 }
 
 package test2serializedbddl owner scott prefix test {
     grants rw {
         demorole: SELECT,INSERT,UPDATE,DELETE;
     }
-    
+
     category tests {
        grants rw
     }
 
     entity SerDataEntity category tests is SerData {
         pk (int1)
-    }       
+    }
 }

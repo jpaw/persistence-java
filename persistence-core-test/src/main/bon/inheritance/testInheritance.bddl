@@ -6,18 +6,18 @@ default
     tablenamepattern "test_(entity)"
     tablespacepattern "system"
     ;
-    
+
 package testInheritanceEntities owner scott prefix test {
     grants rw {
         demorole: SELECT,INSERT,UPDATE,DELETE;
     }
-    
+
     category tests {
        grants rw
     }
 
-    
+
     entity InheritanceTstEntity category tests is MyData {
         pk (key)
-    }       
+    }
 }

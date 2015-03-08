@@ -21,16 +21,16 @@ public class PersistenceProviderJPA implements PersistenceProvider {
     private EntityTransaction transaction = null;
     public final Map<BonaPersistableNoData<?, ?>, Map<Class<? extends BonaPortable>, BonaPortable>> dtoCache
         = new IdentityHashMap<BonaPersistableNoData<?, ?>, Map<Class<? extends BonaPortable>, BonaPortable>>(61);
-    
+
     /** The constructor of the provider is usually invoked by some application specific producer. */
     public PersistenceProviderJPA(EntityManagerFactory emf) {
         entityManager = emf.createEntityManager();
     }
-    
+
     public EntityManager getEntityManager() {
         return entityManager;
     }
-    
+
     @Override
     public String getId() {
         return PersistenceProviders.JPA.name();

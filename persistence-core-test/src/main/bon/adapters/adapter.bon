@@ -7,13 +7,13 @@ package adapterTest {
     default unsigned trim noControlChars;
     properties unroll;
     type city  is Unicode(30);
-    
-    
+
+
     class WithExternalClass {
         Long                                        key;
         (Millis)                                    millis;
     }
-    
+
     class WithAdapterExt {
         Long                                        key;
         required (FpCurrencyStd)                    currency;

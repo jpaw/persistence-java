@@ -12,17 +12,17 @@ package def owner jpaw prefix xxx {
         jpawro :   SELECT;
         jpawrw :   SELECT,INSERT,UPDATE,DELETE;
     }
-    
+
     category cfg { trackinggroup Tracking requiresPK grants rw }
 }
 
 package embedTest owner jpaw prefix jp {
     embeddable AddressEntity is Address {}
-    
+
     embeddable Add2Entity is Add2 {}
 
     embeddable MillisEntity is Millis {}
-    
+
     @Generator(noMapper)
     entity PersonEntity category cfg is Person inheritance tablePerClass {
         pk (personKey)
@@ -32,21 +32,21 @@ package embedTest owner jpaw prefix jp {
         @Embeddable AddressEntity for evenMore
         @Embeddable Add2Entity for myAdd2
     }
-    
+
     @Generator(noMapper)
     entity PersonPlusExtraEntity category cfg is PersonPlusExtra inheritance tablePerClass {
         pk (personKey)
     }
-    
+
     @Generator(noMapper)
     entity EnumArrayUnrolledEntity category cfg is EnumArrayUnrolled inheritance tablePerClass {
         pk (key)
     }
-    
+
     @Generator(noMapper)
     entity WithExternalClassEntity category cfg is WithExternalClass {
         pk (key)
         @Embeddable MillisEntity for millis
-        
-    }    
+
+    }
 }

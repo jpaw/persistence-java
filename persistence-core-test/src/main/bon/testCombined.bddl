@@ -6,10 +6,10 @@ default
     tablenamepattern "test_(entity)"
     tablespacepattern "system"
     ;
-    
+
 package tests2 {
     enum Color { RED, GREEN, BLUE }
-    
+
     class BoxedTypes {
         Byte byte1;
         Short short1;
@@ -22,7 +22,7 @@ package tests2 {
         Char char1;
         Character char2;
     }
-    
+
     enum AlphaColor { RED="R", GREEN="G", BLUE="B" }
 }
 
@@ -30,12 +30,12 @@ package test2bddl owner scott prefix test {
     grants rw {
         demorole: SELECT,INSERT,UPDATE,DELETE;
     }
-    
+
     category tests {
        grants rw
     }
 
     entity BoxedTypesEntity category tests is BoxedTypes {
         pk (int1)
-    }       
+    }
 }

@@ -6,7 +6,7 @@ default
     tablenamepattern "tests_(entity)" dropSuffix "_entity"
     tablespacepattern "system"
     ;
-    
+
 package testsSimple {
     // test if name clashes with internal variables exist
     class SingleCharTypes {
@@ -24,12 +24,12 @@ package testsSimple owner scott prefix test {
     grants rw {
         demorole: SELECT,INSERT,UPDATE,DELETE;
     }
-    
+
     category tests {
        grants rw
     }
 
     entity SingleCharTypesEntity category tests is SingleCharTypes {
         pk (int1)
-    }       
+    }
 }

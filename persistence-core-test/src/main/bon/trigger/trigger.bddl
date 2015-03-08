@@ -14,7 +14,7 @@ package examples.trigger.entities owner scott prefix this {
         history testshis
         requiresPK
         grants rw
-        
+
     }
 
     // example of an entity with a single field primary key

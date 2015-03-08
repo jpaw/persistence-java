@@ -7,16 +7,16 @@ default
     tablenamepattern "test_(entity)"
     tablespacepattern "system"
     ;
-    
+
 package jpa21Converters owner scott prefix test {
     grants rw {
         demorole: SELECT,INSERT,UPDATE,DELETE;
     }
-    
+
     category tests {
        grants rw
     }
-    
+
     converter EnumNumConverter for enum Color;
     converter EnumsetNumConverter for enumset Colormap;
     converter EnumAlphaConverter for enum AlphaColor;
@@ -27,5 +27,5 @@ package jpa21Converters owner scott prefix test {
     converter XEnumConverter for xenum XColor;
     converter XEnumsetConverter for xenumset XColormap;
 
-    converter ExtClassConverterWithExceptions for adapter ClassAdapter; 
+    converter ExtClassConverterWithExceptions for adapter ClassAdapter;
 }

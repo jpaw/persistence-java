@@ -29,10 +29,10 @@ public interface BonaPersistableBase {
      * @return some numeric value defined in the DSL.
      */
     public int get$rtti();
-    
+
     /** Method that allows generic proxy resolution by returning {@code this}. */
     public BonaPersistableBase get$Self();
-    
+
     /** method to activate or deactivate a row */
     public void set$Active(boolean _a);
     /** method to query activeness */
@@ -44,7 +44,7 @@ public interface BonaPersistableBase {
      * @returns -1 if no version column of type int or Integer in this entity */
     public int get$IntVersion();
 
-    
+
     /** Merges the contents of one entity instance into the current one.
      * Performs a shallow copy.
      */

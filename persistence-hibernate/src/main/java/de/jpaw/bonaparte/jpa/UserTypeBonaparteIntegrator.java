@@ -27,7 +27,7 @@ public class UserTypeBonaparteIntegrator implements Integrator {
         if ("org.hibernate.dialect.PostgreSQLDialect".equals(dialect)) {
             LOGGER.info("Postgres DB configured - using special UUID DB type");
             // configuration.registerTypeOverride(new PostgresUUIDType());
-            configuration.registerTypeOverride(new UuidType());  // must have "java.util.UUID" as getName()! 
+            configuration.registerTypeOverride(new UuidType());  // must have "java.util.UUID" as getName()!
         } else {
             LOGGER.info("DB type is " + ( dialect == null ? "null" : dialect) + " - using binary UUID DB type");
             configuration.registerTypeOverride(new UUIDBinaryType());

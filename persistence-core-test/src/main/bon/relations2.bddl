@@ -4,24 +4,24 @@ package relations.test owner scott prefix test {
     grants rw {
         demorole: SELECT,INSERT,UPDATE,DELETE;
     }
-    
+
     category tests {
        grants rw
     }
 
     entity ParentEntity category tests is Parent {
-        pk (key)    
-    }   
-     
+        pk (key)
+    }
+
     entity ItemEntity category tests is Item {
         pk (dummyRef, itemNo)
     }
-    
+
     @Generator(noMapper)
     entity TestEntity category tests is TestObject {
         pk (myKey)
         @ManyToOne ParentEntity parent LAZY for (parentRef)
-        @OneToMany List ItemEntity items EAGER for (dummyRef)  
+        @OneToMany List ItemEntity items EAGER for (dummyRef)
         @ElementCollection prices in the_other_table (test_entity_key) mapKey currencyCode
     }
 }

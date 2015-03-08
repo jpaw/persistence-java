@@ -3,9 +3,9 @@ import out.*
 @Generator(noMapper)
 package (de.jpaw.t9t) out.be.entities owner fortytwo prefix p28 {
     fields private;
-    
+
     category ^int {}
-    
+
     entity OutboundMessageEntity category ^int is OutboundMessageDTO {
         pk is OutboundMessageKey
         index (messageId)

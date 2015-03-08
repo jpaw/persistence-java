@@ -4,12 +4,12 @@ import java.util.Map;
 
 /** Various utility methods to retrieve properties from the persistence.xml.
  * Some cases are straightforward, others depend on the OR mapper used.
- * 
+ *
  * A bit portability issue is, that the availability of these properties is OR mapper specific:
- * 
+ *
  * With Eclipselink, the properties obtained from the EMF are empty, while the properties obtained from an EntityManager 1:1 match the persistence.xml entries
- *  (including the database JDBC password!) 
- * 
+ *  (including the database JDBC password!)
+ *
  * With Hibernate, the properties obtained from the EMF are a mixture of system properties implicit internal properties plus the provided ones,
  *  however the JDBC password is asterisked out. (****)
  * From the EntityManager, we get 5 properties here (as of Hibernate 4.2.2):
@@ -49,7 +49,7 @@ public class PersistenceUnitProps {
             return ORMapper.HIBERNATE;
         return ORMapper.UNSUPPORTED;
     }
-    
+
     private static String normalized(Object dbo) {
         if (dbo instanceof String) {
             // strip off any fully qualified class name prefix
@@ -66,7 +66,7 @@ public class PersistenceUnitProps {
         // some other class: use the simple class name
         return dbo.getClass().getSimpleName();
     }
-    
+
     /** Returns a guess of the underlying database vendor. */
     public static DatabaseFlavour getDatabaseFlavour(Map<String,Object> properties) {
         Object dbo = properties.get("eclipselink.target-database");

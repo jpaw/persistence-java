@@ -16,12 +16,12 @@ public class BonaPortableConverter<S> implements Converter {
 
     private final QuickConverter<S> myConverter;
     private final boolean isText;
-    
+
     BonaPortableConverter(QuickConverter<S> myConverter, boolean isText) {
         this.myConverter = myConverter;
         this.isText = isText;
     }
-    
+
     @Override
     public Object convertDataValueToObjectValue(Object dataValue, Session session) {
         try {
