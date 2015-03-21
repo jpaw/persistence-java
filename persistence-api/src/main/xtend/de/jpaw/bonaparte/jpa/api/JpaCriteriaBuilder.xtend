@@ -62,7 +62,7 @@ public class JpaCriteriaBuilder {
         NotFilter:
             return buildPredicate(filter.filter).not
         default:
-            throw new RuntimeException("Unrecognized filter type: " + filter.get$PQON)
+            throw new RuntimeException("Unrecognized filter type: " + filter.ret$PQON)
         }
     }
 }
@@ -180,7 +180,7 @@ public class JpaFilterImpl implements JpaFilter {
                     else
                         cb.between(path as Path<LocalTime>, filter.lowerBound, filter.upperBound)
         default:
-            throw new RuntimeException("Unrecognized field filter type: " + filter.get$PQON)
+            throw new RuntimeException("Unrecognized field filter type: " + filter.ret$PQON)
         }
     }
 

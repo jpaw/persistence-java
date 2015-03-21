@@ -28,21 +28,21 @@ public interface BonaPersistableBase {
      *
      * @return some numeric value defined in the DSL.
      */
-    public int get$rtti();
+    public int ret$rtti();
 
     /** Method that allows generic proxy resolution by returning {@code this}. */
-    public BonaPersistableBase get$Self();
+    public BonaPersistableBase ret$Self();
 
     /** method to activate or deactivate a row */
-    public void set$Active(boolean _a);
+    public void put$Active(boolean _a);
     /** method to query activeness */
-    public boolean get$Active();
+    public boolean ret$Active();
 
     /** method to set an integer version */
-    public void set$IntVersion(int _v);
+    public void put$IntVersion(int _v);
     /** method to query current version.
      * @returns -1 if no version column of type int or Integer in this entity */
-    public int get$IntVersion();
+    public int ret$IntVersion();
 
 
     /** Merges the contents of one entity instance into the current one.

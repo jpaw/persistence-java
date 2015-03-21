@@ -32,19 +32,19 @@ public interface BonaTracking <T extends BonaPortable> {
      *
      * @return the partially qualified object name as a not-null Java String.
      */
-    public String get$TrackingPQON();
+    public String ret$TrackingPQON();
     /** Gets the class of the underlying message base class for the data object.
      *
      * @return the class type of the underlying message base class, never null.
      */
-    public Class<T> get$TrackingClass();
+    public Class<T> ret$TrackingClass();
 
 
     /** Gets the tracking columns (if any) of the data of this instance.
      *
      * @return a new object of the base class initialized with the tracking data of this instance, or null if no tracking data exists.
      */
-    public T get$Tracking();
-    public void set$Tracking(T _d);
+    public T ret$Tracking();
+    public void put$Tracking(T _d);
 
 }

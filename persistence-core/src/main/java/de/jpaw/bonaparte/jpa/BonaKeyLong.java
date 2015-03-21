@@ -27,12 +27,12 @@ public interface BonaKeyLong {
      *
      * @return the class type of the underlying key class, never null.
      */
-    public Class<?> get$KeyClass();
+    public Class<?> ret$KeyClass();
     /** Gets a new message object initialized with the Entity classes data.
      *
      * @return a new object of the base class initialized with the data of this instance.
      */
-    public long get$Key();
-    public void set$Key(long _d);
+    public long ret$Key();
+    public void put$Key(long _d);
 
 }

@@ -31,18 +31,18 @@ public interface BonaData<D extends BonaPortable> {
      *
      * @return the partially qualified object name as a not-null Java String.
      */
-    public String get$DataPQON();
+    public String ret$DataPQON();
     /** Gets the class of the underlying message base class for the data object.
      *
      * @return the class type of the underlying message base class, never null.
      */
-    public Class<? extends D> get$DataClass();
+    public Class<? extends D> ret$DataClass();
 
     /** Gets a new message object initialized with the Entity classes data.
      *
      * @return a new object of the base class initialized with the data of this instance.
      */
-    public D get$Data();
-    public void set$Data(D _d);
+    public D ret$Data();
+    public void put$Data(D _d);
 
 }

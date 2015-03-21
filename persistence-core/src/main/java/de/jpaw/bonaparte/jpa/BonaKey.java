@@ -31,12 +31,12 @@ public interface BonaKey<K extends Serializable> {
      *
      * @return the class type of the underlying key class, never null.
      */
-    public Class<K> get$KeyClass();
+    public Class<K> ret$KeyClass();
     /** Gets a new message object initialized with the Entity classes data.
      *
      * @return a new object of the base class initialized with the data of this instance.
      */
-    public K get$Key();
-    public void set$Key(K _d);
+    public K ret$Key();
+    public void put$Key(K _d);
 
 }
