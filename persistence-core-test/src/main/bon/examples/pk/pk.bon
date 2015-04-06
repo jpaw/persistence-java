@@ -15,4 +15,9 @@ package examples.pkey {
         required Integer    key2;
         Ascii(80)           data;
     }
+    
+    class StandardJava {
+        required Long           myKey;
+        optional Unicode(80)    text;
+    }
 }
