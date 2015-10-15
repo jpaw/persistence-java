@@ -29,12 +29,13 @@ public class BonaparteSessionCustomizer implements SessionCustomizer {
     protected final Map<Class<?>, Converter> convertersPerType = new HashMap<Class<?>, Converter>();
 
     public BonaparteSessionCustomizer() {
-        LOGGER.info("BonaparteSessionCustomizer created");
+        LOGGER.info("BonaparteSessionCustomizer with JSON mapping created");
         convertersPerType.put(ByteArray.class,      new ByteArrayConverter());
         convertersPerType.put(LocalDateTime.class,  new JodaLocalDateTimeConverter());
         convertersPerType.put(LocalTime.class,      new JodaLocalTimeConverter());
         convertersPerType.put(LocalDate.class,      new JodaLocalDateConverter());
         convertersPerType.put(Instant.class,        new JodaInstantConverter());
+        convertersPerType.put(Map.class,            new JsonConverter());
     }
 
     @Override
