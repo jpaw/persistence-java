@@ -8,6 +8,7 @@ import org.hibernate.type.descriptor.java.UUIDTypeDescriptor;
 
 /** Special UUID type for Postgres - using the name java.util.UUID */
 public class UuidType extends AbstractSingleColumnStandardBasicType<UUID> {
+    private static final long serialVersionUID = -3089307787430554426L;
 
     public UuidType() {
         super(PostgresUUIDType.PostgresUUIDSqlTypeDescriptor.INSTANCE, UUIDTypeDescriptor.INSTANCE);
