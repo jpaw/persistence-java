@@ -4,7 +4,7 @@
     version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
 
     <persistence-unit name="test-hibernate-h2" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>de.jpaw.bonaparte.pojos.persistencetest.BoxedTypesEntity</class>
         <class>de.jpaw.bonaparte.pojos.persistencetest.OtherTypesEntity</class>
 

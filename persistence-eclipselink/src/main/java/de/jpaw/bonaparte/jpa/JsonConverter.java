@@ -3,6 +3,7 @@ package de.jpaw.bonaparte.jpa;
 import java.sql.Types;
 import java.util.Map;
 
+import org.eclipse.persistence.internal.helper.DatabaseField;
 import org.eclipse.persistence.mappings.DatabaseMapping;
 import org.eclipse.persistence.mappings.converters.Converter;
 import org.eclipse.persistence.mappings.foundation.AbstractDirectMapping;
@@ -40,11 +41,24 @@ public class JsonConverter implements Converter {
     @Override
     public void initialize(DatabaseMapping mapping, Session session) {
         ((AbstractDirectMapping) mapping).setFieldType(Types.NCLOB);
+        
+        
+        Object platform = session.getDatasourcePlatform();
+        final boolean isPostgres = platform != null && "PostgreSQLPlatform".equals(platform.toString()); 
+        LOGGER.info("Postgres platform detected? {}", isPostgres);
+        
+        // field type setting adapted from http://stackoverflow.com/questions/13346089/using-uuid-with-eclipselink-and-postgresql
+        final DatabaseField field = mapping.getField();
+        if (field != null) {
+            LOGGER.info("mapping.getField is not null");
+            if (isPostgres)
+                field.setColumnDefinition("jsonb");
+//            field.setTypeName("xyzzy");
+        }
     }
 
     @Override
     public boolean isMutable() {
         return true;
     }
-
 }
