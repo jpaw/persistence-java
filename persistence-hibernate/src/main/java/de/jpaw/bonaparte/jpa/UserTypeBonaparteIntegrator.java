@@ -1,5 +1,7 @@
 package de.jpaw.bonaparte.jpa;
 
+import java.util.Map;
+
 import org.hibernate.cfg.Configuration;
 import org.hibernate.engine.spi.SessionFactoryImplementor;
 import org.hibernate.integrator.spi.Integrator;
@@ -23,8 +25,9 @@ public class UserTypeBonaparteIntegrator implements Integrator {
     @Override
     public void integrate(Configuration configuration, SessionFactoryImplementor sessionFactory, SessionFactoryServiceRegistry serviceRegistry) {
         configuration.registerTypeOverride(new ByteArrayUserType(), new String[] { ByteArray.class.getName() });
+        configuration.registerTypeOverride(new JsonUserType(), new String[] { Map.class.getName() });
         String dialect = configuration.getProperty("hibernate.dialect");
-        if ("org.hibernate.dialect.PostgreSQLDialect".equals(dialect)) {
+        if ("org.hibernate.dialect.PostgreSQL9Dialect".equals(dialect)) {
             LOGGER.info("Postgres DB configured - using special UUID DB type");
             // configuration.registerTypeOverride(new PostgresUUIDType());
             configuration.registerTypeOverride(new UuidType());  // must have "java.util.UUID" as getName()!

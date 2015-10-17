@@ -30,12 +30,13 @@ public class BonaparteSessionCustomizer implements SessionCustomizer {
 
     public BonaparteSessionCustomizer() {
         LOGGER.info("BonaparteSessionCustomizer with JSON mapping created");
-        convertersPerType.put(ByteArray.class,      new ByteArrayConverter());
-        convertersPerType.put(LocalDateTime.class,  new JodaLocalDateTimeConverter());
-        convertersPerType.put(LocalTime.class,      new JodaLocalTimeConverter());
-        convertersPerType.put(LocalDate.class,      new JodaLocalDateConverter());
-        convertersPerType.put(Instant.class,        new JodaInstantConverter());
-        convertersPerType.put(Map.class,            new JsonConverter());
+        convertersPerType.put(ByteArray.class,          new ByteArrayConverter());
+        convertersPerType.put(LocalDateTime.class,      new JodaLocalDateTimeConverter());
+        convertersPerType.put(LocalTime.class,          new JodaLocalTimeConverter());
+        convertersPerType.put(LocalDate.class,          new JodaLocalDateConverter());
+        convertersPerType.put(Instant.class,            new JodaInstantConverter());
+        convertersPerType.put(NativeJsonObject.class,   new JsonConverter());
+        convertersPerType.put(NativeJsonElement.class,  new ElementConverter());
     }
 
     @Override

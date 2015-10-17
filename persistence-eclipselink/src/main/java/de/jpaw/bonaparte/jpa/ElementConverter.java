@@ -14,18 +14,18 @@ import de.jpaw.bonaparte.core.BonaparteJsonEscaper;
 import de.jpaw.json.JsonException;
 import de.jpaw.json.JsonParser;
 
-// convert between the Java type "NativeJsonObject(Map<String, Object>)" and a text, which in the database will be used as JSON
+// convert between the Java type "NativeJsonElement(Object)" and a text, which in the database will be used as JSON
 // a type cast is required on the database to avoid Postgres's type errors!
-public class JsonConverter implements Converter {
+public class ElementConverter implements Converter {
 
-    private static final long serialVersionUID = 166786L;
-    protected static final Logger LOGGER = LoggerFactory.getLogger(JsonConverter.class);
+    private static final long serialVersionUID = 166787L;
+    protected static final Logger LOGGER = LoggerFactory.getLogger(ElementConverter.class);
 
-    // parse String to Map (inside NativeJsonObject)
+    // parse String to Map (inside NativeJsonElement)
     @Override
     public Object convertDataValueToObjectValue(Object dataValue, Session session) {
         try {
-            return dataValue == null ? null : new NativeJsonObject(new JsonParser((String) dataValue, false).parseObject());
+            return dataValue == null ? null : new NativeJsonElement(new JsonParser((String) dataValue, false).parseElement());
         } catch (JsonException e) {
             LOGGER.error("Cannot parse JSON data: {}", e.getMessage());
             throw new RuntimeException(e);
@@ -35,7 +35,7 @@ public class JsonConverter implements Converter {
     // print Map in JSON format, also expand any BonaPortables included
     @Override
     public Object convertObjectValueToDataValue(Object objectValue, Session session) {
-        return objectValue == null ? null : BonaparteJsonEscaper.asJson(((NativeJsonObject) objectValue).getData());
+        return objectValue == null ? null : BonaparteJsonEscaper.asJson(((NativeJsonElement) objectValue).getData());
     }
 
     @Override
@@ -53,8 +53,8 @@ public class JsonConverter implements Converter {
             LOGGER.info("mapping.getField is not null");
             if (isPostgres) {
                 field.setColumnDefinition("jsonb");
-//                field.setType(NativeJsonObject.class);
-//                field.setTypeName("java.util.Map");
+//                field.setType(NativeJsonElement.class);
+//                field.setTypeName("java.lang.Object");
             }
         }
     }
