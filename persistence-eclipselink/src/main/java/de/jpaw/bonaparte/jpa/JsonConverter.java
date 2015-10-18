@@ -16,6 +16,16 @@ import de.jpaw.json.JsonParser;
 
 // convert between the Java type "NativeJsonObject(Map<String, Object>)" and a text, which in the database will be used as JSON
 // a type cast is required on the database to avoid Postgres's type errors!
+
+// see http://stackoverflow.com/questions/32238884/storing-json-jsonb-hstore-xml-enum-ipaddr-etc-fails-with-column-x-is-of
+//CREATE OR REPLACE FUNCTION json_intext(text) RETURNS json AS $$
+//SELECT json_in($1::cstring); 
+//$$ LANGUAGE SQL IMMUTABLE;
+//
+//CREATE CAST (text AS json) 
+//WITH FUNCTION json_intext(text) AS IMPLICIT;
+
+
 public class JsonConverter implements Converter {
 
     private static final long serialVersionUID = 166786L;

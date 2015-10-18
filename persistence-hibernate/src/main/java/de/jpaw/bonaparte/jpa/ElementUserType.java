@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
-import java.util.Map;
 
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SessionImplementor;
@@ -23,8 +22,8 @@ import de.jpaw.json.JsonException;
 import de.jpaw.json.JsonParser;
 
 // implementation of a User type to map Map<String,Object> to a NVARCHAR (or jsonb on postgres databases)
-public class JsonUserType implements UserType {
-    protected static final Logger LOGGER = LoggerFactory.getLogger(JsonUserType.class);
+public class ElementUserType implements UserType {
+    protected static final Logger LOGGER = LoggerFactory.getLogger(ElementUserType.class);
 
     // returns the Java type. Input rs
     @Override
@@ -34,7 +33,7 @@ public class JsonUserType implements UserType {
             return null;
         }
         try {
-            return new NativeJsonObject(new JsonParser(json, false).parseObject());
+            return new NativeJsonElement(new JsonParser(json, false).parseElement());
         } catch (JsonException e) {
             LOGGER.error("Cannot parse JSON data: {}", e.getMessage());
             throw new RuntimeException(e);
@@ -47,13 +46,13 @@ public class JsonUserType implements UserType {
         if (value == null) {
             st.setNull(index, Types.NVARCHAR);
         } else {
-            st.setNString(index, BonaparteJsonEscaper.asJson(((NativeJsonObject) value).getData()));
+            st.setNString(index, BonaparteJsonEscaper.asJson(((NativeJsonElement) value).getData()));
         }
     }
 
     @Override
-    public Class<NativeJsonObject> returnedClass() {
-        return NativeJsonObject.class;
+    public Class<NativeJsonElement> returnedClass() {
+        return NativeJsonElement.class;
     }
 
     @Override
@@ -99,13 +98,13 @@ public class JsonUserType implements UserType {
     @Override
     public Serializable disassemble(Object value) throws HibernateException {
         // use a compact for for caching
-        return CompactByteArrayComposer.marshalAsJson(StaticMeta.OUTER_BONAPORTABLE_FOR_JSON, (Map<String, Object>)value); 
+        return CompactByteArrayComposer.marshalAsElement(StaticMeta.OUTER_BONAPORTABLE_FOR_ELEMENT, value); 
     }
 
     @Override
     public Object assemble(Serializable cached, Object owner) throws HibernateException {
         try {
-            return CompactByteArrayParser.unmarshalJson((byte [])cached, StaticMeta.OUTER_BONAPORTABLE_FOR_JSON);
+            return CompactByteArrayParser.unmarshalElement((byte [])cached, StaticMeta.OUTER_BONAPORTABLE_FOR_ELEMENT);
         } catch (MessageParserException e) {
             return new HibernateException(e);
         } 
