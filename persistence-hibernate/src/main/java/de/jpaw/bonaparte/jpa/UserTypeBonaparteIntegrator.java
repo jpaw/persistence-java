@@ -23,7 +23,10 @@ public class UserTypeBonaparteIntegrator implements Integrator {
     @Override
     public void integrate(Configuration configuration, SessionFactoryImplementor sessionFactory, SessionFactoryServiceRegistry serviceRegistry) {
         configuration.registerTypeOverride(new ByteArrayUserType(), new String[] { ByteArray.class.getName() });
-        configuration.registerTypeOverride(new JsonUserType(), new String[] { NativeJsonObject.class.getName() });
+        configuration.registerTypeOverride(new JsonUserType(),      new String[] { NativeJsonObject.class.getName() });
+        configuration.registerTypeOverride(new ArrayUserType(),     new String[] { NativeJsonArray.class.getName() });
+        configuration.registerTypeOverride(new ElementUserType(),   new String[] { NativeJsonElement.class.getName() });
+        
         String dialect = configuration.getProperty("hibernate.dialect");
         if ("org.hibernate.dialect.PostgreSQL9Dialect".equals(dialect)) {
             LOGGER.info("Postgres DB configured - using special UUID DB type");

@@ -36,6 +36,7 @@ public class BonaparteSessionCustomizer implements SessionCustomizer {
         convertersPerType.put(LocalDate.class,          new JodaLocalDateConverter());
         convertersPerType.put(Instant.class,            new JodaInstantConverter());
         convertersPerType.put(NativeJsonObject.class,   new JsonConverter());
+        convertersPerType.put(NativeJsonArray.class,    new ArrayConverter());
         convertersPerType.put(NativeJsonElement.class,  new ElementConverter());
     }
 
