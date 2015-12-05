@@ -24,6 +24,7 @@ public class PersistenceProviderJPA implements PersistenceProvider {
 
     /** The constructor of the provider is usually invoked by some application specific producer. */
     public PersistenceProviderJPA(EntityManagerFactory emf) {
+        LOGGER.debug("new(): creating EntityManager");
         entityManager = emf.createEntityManager();
     }
 
@@ -43,19 +44,23 @@ public class PersistenceProviderJPA implements PersistenceProvider {
 
     @Override
     public void open() {
+        LOGGER.debug("open(): starting transaction");
         if (transaction != null)
             throw new RuntimeException("JPA transaction open() called on an existing transaction");
         transaction = entityManager.getTransaction();
         transaction.begin();
     }
+
     @Override
     public void rollback() {
+        LOGGER.debug("rollback(): terminating transaction");
         transaction.rollback();
         transaction = null;
     }
 
     @Override
     public void commit() throws Exception {
+        LOGGER.debug("commit(): transaction end");
         transaction.commit();
         transaction = null;
     }
@@ -68,6 +73,7 @@ public class PersistenceProviderJPA implements PersistenceProvider {
             transaction.rollback();
             transaction = null;
         }
+        LOGGER.debug("close(): destroying EntityManager");
         // allow multiple closes...
         if (entityManager != null) {
             entityManager.close();

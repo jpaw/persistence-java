@@ -42,7 +42,7 @@ public class BonaparteSessionCustomizer implements SessionCustomizer {
 
     @Override
     public void customize(Session session) throws Exception {
-        LOGGER.debug("customizing session");
+        LOGGER.trace("customizing session");
         // Iterate through the meta-data of all known JPA entities
         Map<Class, ClassDescriptor> descriptors = session.getDescriptors();
         for (ClassDescriptor descriptor : descriptors.values()) {
