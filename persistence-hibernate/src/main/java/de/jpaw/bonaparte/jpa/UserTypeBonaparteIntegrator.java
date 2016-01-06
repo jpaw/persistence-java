@@ -1,6 +1,7 @@
 package de.jpaw.bonaparte.jpa;
 
 import org.hibernate.cfg.Configuration;
+import org.hibernate.dialect.Dialect;
 import org.hibernate.engine.spi.SessionFactoryImplementor;
 import org.hibernate.integrator.spi.Integrator;
 import org.hibernate.metamodel.source.MetadataImplementor;
@@ -27,9 +28,13 @@ public class UserTypeBonaparteIntegrator implements Integrator {
         configuration.registerTypeOverride(new ArrayUserType(),     new String[] { NativeJsonArray.class.getName() });
         configuration.registerTypeOverride(new ElementUserType(),   new String[] { NativeJsonElement.class.getName() });
         
-        String dialect = configuration.getProperty("hibernate.dialect");
+//      String configuredDialect = configuration.getProperty("hibernate.dialect");
+        Dialect autodetectedDialect = sessionFactory.getDialect();
+        String dialect = autodetectedDialect.getClass().getCanonicalName();
+        LOGGER.info("Autodetected dialect is {}", dialect);
+        
         if ("org.hibernate.dialect.PostgreSQL9Dialect".equals(dialect)) {
-            LOGGER.info("Postgres DB configured - using special UUID DB type");
+            LOGGER.info("Postgres9 DB configured - using special UUID DB type");
             // configuration.registerTypeOverride(new PostgresUUIDType());
             configuration.registerTypeOverride(new UuidType());  // must have "java.util.UUID" as getName()!
         } else {
