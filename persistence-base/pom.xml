@@ -5,21 +5,24 @@
     <parent>
         <groupId>de.jpaw</groupId>
         <artifactId>jpaw-se-parent</artifactId>
-        <version>1.1.0</version>
+        <version>1.1.1-SNAPSHOT</version>
         <relativePath/>
     </parent>
 
     <artifactId>persistence-base</artifactId>
-    <version>4.0.1</version>
+    <version>4.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings for all bonaparte JPA projects</description>
     <url>http://www.jpaw.de/projects/bonaparte/index.html</url>
 
     <properties>
+        <!-- override definition in jpaw-se-parent -->
+        <xtend.version>2.9.1</xtend.version>            <!-- UPTODATE 2015-12-31 -->
+
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
-        <bonaparte-plugin.version>4.0.0</bonaparte-plugin.version>
+        <bonaparte-plugin.version>4.0.2-SNAPSHOT</bonaparte-plugin.version>
         
         <!-- public libraries -->
         <eclipselink.version>2.6.1</eclipselink.version>    <!-- 2.4.x = JPA 2.0, 2.5.x = JPA 2.1 -->
@@ -32,7 +35,7 @@
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>bonaparte-bom</artifactId>
-                <version>4.0.0</version>
+                <version>4.0.2-SNAPSHOT</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
