@@ -31,10 +31,12 @@ package testEnums {
     }
     class TypeWithEnums {
         required Integer id;
-        required enumset Weekdays weekdays;
-        required enumset Weekdays nullableWeekdays properties nullWhenZero;
-        required enumset Letterset letters;
-        required enumset Letterset nullableLetters properties nullWhenZero;
+        required enumset Weekdays       weekdays;
+        required enumset Weekdays       nullableWeekdays    properties nullWhenZero;
+        required enumset Letterset      letters;
+        required enumset Letterset      nullableLetters     properties nullWhenZero;
+        required xenumset XColormap(10) colors;
+        required xenumset XColormap(10) nullableColors      properties nullWhenZero;
     }
 }
 
