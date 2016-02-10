@@ -17,5 +17,8 @@ package relations.test {
         Unicode(80) name;
         Decimal(14,2) Map<String> prices;
         (Item...) List<> items;
+        (Item...) List<> itemsCascade;
+        (Item...) List<> itemsOrphan;
+        (Item...) List<> itemsCascadeOrphan;
     }
 }
