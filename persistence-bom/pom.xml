@@ -12,7 +12,7 @@
     <packaging>pom</packaging>
 
     <description>Bonpaparte persistence JPA bill of materials</description>
- 
+
     <dependencyManagement>
         <dependencies>
             <dependency>

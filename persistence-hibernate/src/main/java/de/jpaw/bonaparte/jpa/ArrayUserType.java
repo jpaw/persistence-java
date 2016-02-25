@@ -99,7 +99,7 @@ public class ArrayUserType implements UserType {
     @Override
     public Serializable disassemble(Object value) throws HibernateException {
         // use a compact for for caching
-        return CompactByteArrayComposer.marshalAsArray(StaticMeta.OUTER_BONAPORTABLE_FOR_ARRAY, (List<Object>)value); 
+        return CompactByteArrayComposer.marshalAsArray(StaticMeta.OUTER_BONAPORTABLE_FOR_ARRAY, (List<Object>)value);
     }
 
     @Override
@@ -108,6 +108,6 @@ public class ArrayUserType implements UserType {
             return CompactByteArrayParser.unmarshalArray((byte [])cached, StaticMeta.OUTER_BONAPORTABLE_FOR_ARRAY);
         } catch (MessageParserException e) {
             return new HibernateException(e);
-        } 
+        }
     }
 }

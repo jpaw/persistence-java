@@ -26,12 +26,12 @@ package persistencetest owner scott prefix test {
     entity PrimitivesEntity category tests is Primitives {
         pk (int1)
     }  */
-    
+
     abstract entity AbstractEntity category testsWithPk is BoxedTypes {
     }
-    
+
     abstract entity SubEntity is BoxedTypes inherits AbstractEntity {
-        
+
     }
 
     entity BoxedTypesEntity category tests is BoxedTypes {

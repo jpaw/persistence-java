@@ -41,12 +41,12 @@ public class ElementConverter implements Converter {
     @Override
     public void initialize(DatabaseMapping mapping, Session session) {
         ((AbstractDirectMapping) mapping).setFieldType(Types.NVARCHAR);  // candidates are JAVA_OBJECT, OTHER, NVARCHAR etc...
-        
-        
+
+
         Object platform = session.getDatasourcePlatform();
-        final boolean isPostgres = platform != null && "PostgreSQLPlatform".equals(platform.toString()); 
+        final boolean isPostgres = platform != null && "PostgreSQLPlatform".equals(platform.toString());
         LOGGER.info("Postgres platform detected? {}", isPostgres);
-        
+
         // field type setting adapted from http://stackoverflow.com/questions/13346089/using-uuid-with-eclipselink-and-postgresql
         final DatabaseField field = mapping.getField();
         if (field != null) {

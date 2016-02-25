@@ -5,7 +5,7 @@ import java.util.Map;
 
 /** Wrapper class to store general items which should be converted into database specific native JSON objects.
  * Provided as a hook for the converters.
- * 
+ *
  * @author mbi
  *
  */
@@ -27,12 +27,12 @@ public final class NativeJsonObject implements Serializable {
     }
 
     // standard Java stuff: toString(), hashCode(), equals()
-    
+
     @Override
     public String toString() {
         return data == null ? "(null)" : data.toString();
     }
-    
+
     @Override
     public int hashCode() {
         return data == null ? 0 : data.hashCode();

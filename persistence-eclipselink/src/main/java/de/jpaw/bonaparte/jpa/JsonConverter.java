@@ -19,10 +19,10 @@ import de.jpaw.json.JsonParser;
 
 // see http://stackoverflow.com/questions/32238884/storing-json-jsonb-hstore-xml-enum-ipaddr-etc-fails-with-column-x-is-of
 //CREATE OR REPLACE FUNCTION json_intext(text) RETURNS json AS $$
-//SELECT json_in($1::cstring); 
+//SELECT json_in($1::cstring);
 //$$ LANGUAGE SQL IMMUTABLE;
 //
-//CREATE CAST (text AS json) 
+//CREATE CAST (text AS json)
 //WITH FUNCTION json_intext(text) AS IMPLICIT;
 
 
@@ -51,12 +51,12 @@ public class JsonConverter implements Converter {
     @Override
     public void initialize(DatabaseMapping mapping, Session session) {
         ((AbstractDirectMapping) mapping).setFieldType(Types.NVARCHAR);  // candidates are JAVA_OBJECT, OTHER, NVARCHAR etc...
-        
-        
+
+
         Object platform = session.getDatasourcePlatform();
-        final boolean isPostgres = platform != null && "PostgreSQLPlatform".equals(platform.toString()); 
+        final boolean isPostgres = platform != null && "PostgreSQLPlatform".equals(platform.toString());
         LOGGER.info("Postgres platform detected? {}", isPostgres);
-        
+
         // field type setting adapted from http://stackoverflow.com/questions/13346089/using-uuid-with-eclipselink-and-postgresql
         final DatabaseField field = mapping.getField();
         if (field != null) {

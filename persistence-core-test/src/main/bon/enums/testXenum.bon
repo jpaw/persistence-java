@@ -11,7 +11,7 @@ package testXenum {
     enumset AlphaSet is AlphaColor;
     enumset AlphaSetUni is AlphaColorUnicode;
     xenumset XColorSet1 is XColorWithNull;
-    
+
     class EnumTests BeanVal {
         Integer key;
         enum Color color1;
@@ -23,11 +23,11 @@ package testXenum {
         xenum XColorWithNull xcolor1withNull;
         xenum XColorUni xcolor2;
         xenum XColorUni2 xcolor3;
-        
+
         enumset AlphaSet asciiSet1;
         enumset AlphaSetUni uniset1;
         xenumset XColorSet1(10) asciiSet2;
-        
+
     }
 
 }

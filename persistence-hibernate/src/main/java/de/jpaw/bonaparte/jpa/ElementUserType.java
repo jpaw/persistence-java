@@ -98,7 +98,7 @@ public class ElementUserType implements UserType {
     @Override
     public Serializable disassemble(Object value) throws HibernateException {
         // use a compact for for caching
-        return CompactByteArrayComposer.marshalAsElement(StaticMeta.OUTER_BONAPORTABLE_FOR_ELEMENT, value); 
+        return CompactByteArrayComposer.marshalAsElement(StaticMeta.OUTER_BONAPORTABLE_FOR_ELEMENT, value);
     }
 
     @Override
@@ -107,6 +107,6 @@ public class ElementUserType implements UserType {
             return CompactByteArrayParser.unmarshalElement((byte [])cached, StaticMeta.OUTER_BONAPORTABLE_FOR_ELEMENT);
         } catch (MessageParserException e) {
             return new HibernateException(e);
-        } 
+        }
     }
 }

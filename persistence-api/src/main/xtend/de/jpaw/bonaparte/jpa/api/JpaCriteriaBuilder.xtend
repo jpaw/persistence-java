@@ -38,15 +38,15 @@ public interface JpaPathResolver {
 public class JpaCriteriaBuilder {
     @Inject
     var JpaFilter jpaFilter
-    
+
     val JpaPathResolver pathResolver
     val CriteriaBuilder cb
-    
+
     public new(JpaPathResolver pathResolver, CriteriaBuilder cb) {
         this.pathResolver = pathResolver
         this.cb = cb
     }
-    
+
     def public Predicate buildPredicate(SearchFilter filter) {
         if (filter === null)
             return null;

@@ -26,7 +26,7 @@ public class DeserializeExceptionHandler {
         LOG.error(ByteUtil.dump(offendingData, badPosition - DUMP_BYTES_BEFORE, badPosition + DUMP_BYTES_AFTER));
         throw new IllegalArgumentException("Cannot parse serialized data for " + fieldname + ": " + e.getMessage());
     }
-    
+
     public static void exceptionHandler(String fieldname, String offendingData, JsonException e, Class<?> clazz, Object entityKey) {
         // first, dump out a bit of information so we can analyze better...
         LOG.error("Serialized data is corrupt for entity {} with key {}: {}",

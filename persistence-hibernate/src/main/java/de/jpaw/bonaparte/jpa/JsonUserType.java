@@ -99,7 +99,7 @@ public class JsonUserType implements UserType {
     @Override
     public Serializable disassemble(Object value) throws HibernateException {
         // use a compact for for caching
-        return CompactByteArrayComposer.marshalAsJson(StaticMeta.OUTER_BONAPORTABLE_FOR_JSON, (Map<String, Object>)value); 
+        return CompactByteArrayComposer.marshalAsJson(StaticMeta.OUTER_BONAPORTABLE_FOR_JSON, (Map<String, Object>)value);
     }
 
     @Override
@@ -108,6 +108,6 @@ public class JsonUserType implements UserType {
             return CompactByteArrayParser.unmarshalJson((byte [])cached, StaticMeta.OUTER_BONAPORTABLE_FOR_JSON);
         } catch (MessageParserException e) {
             return new HibernateException(e);
-        } 
+        }
     }
 }
