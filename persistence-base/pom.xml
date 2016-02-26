@@ -25,7 +25,7 @@
         <bonaparte-plugin.version>4.0.9-SNAPSHOT</bonaparte-plugin.version>
 
         <!-- public libraries -->
-        <eclipselink.version>2.6.1</eclipselink.version>    <!-- 2.4.x = JPA 2.0, 2.5.x = JPA 2.1 -->
+        <eclipselink.version>2.6.2</eclipselink.version>    <!-- 2.4.x = JPA 2.0, 2.5.x = JPA 2.1 -->
         <hibernate.version>4.3.11.Final</hibernate.version>  <!-- uptodate 2015-10-01 for 4.3, but also 5.0.2 exists -->
         <hibernate-validator.version>5.2.2.Final</hibernate-validator.version>
     </properties>
