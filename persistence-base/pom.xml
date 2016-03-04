@@ -17,9 +17,6 @@
     <url>http://www.jpaw.de/projects/bonaparte/index.html</url>
 
     <properties>
-        <!-- override definition in jpaw-se-parent -->
-        <xtend.version>2.9.1</xtend.version>            <!-- UPTODATE 2015-12-31 -->
-
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
         <bonaparte-plugin.version>4.0.12-SNAPSHOT</bonaparte-plugin.version>
