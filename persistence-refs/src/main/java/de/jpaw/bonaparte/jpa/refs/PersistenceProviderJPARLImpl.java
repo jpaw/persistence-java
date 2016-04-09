@@ -48,15 +48,21 @@ public class PersistenceProviderJPARLImpl implements PersistenceProviderJPA {
     @Override
     public void rollback() {
         LOGGER.debug("rollback(): terminating transaction");
-        transaction.rollback();
-        transaction = null;
+        try {
+            transaction.rollback();
+        } finally {
+            transaction = null;
+        }
     }
 
     @Override
     public void commit() throws Exception {
         LOGGER.debug("commit(): transaction end");
-        transaction.commit();
-        transaction = null;
+        try {
+            transaction.commit();
+        } finally {
+            transaction = null;
+        }
     }
 
 
@@ -64,8 +70,7 @@ public class PersistenceProviderJPARLImpl implements PersistenceProviderJPA {
     public void close() {
         if (transaction != null) {
             LOGGER.warn("attempt to close an open transaction, performing an implicit rollback");
-            transaction.rollback();
-            transaction = null;
+            transaction.rollback();  // rollback should set transaction to null
         }
         LOGGER.debug("close(): destroying EntityManager");
         // allow multiple closes...
