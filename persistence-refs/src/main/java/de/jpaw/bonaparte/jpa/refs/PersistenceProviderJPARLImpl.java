@@ -48,20 +48,27 @@ public class PersistenceProviderJPARLImpl implements PersistenceProviderJPA {
     @Override
     public void rollback() {
         LOGGER.debug("rollback(): terminating transaction");
-        try {
-            transaction.rollback();
-        } finally {
-            transaction = null;
+        if (transaction != null) {
+            try {
+                transaction.rollback();
+            } catch (Exception e) {
+                // cannot do anything because we are rolling back already anyway
+                LOGGER.error("{} on JPA rollback: {}", e.getClass().getSimpleName(), e.getMessage());
+            } finally {
+                transaction = null;
+            }
         }
     }
 
     @Override
     public void commit() throws Exception {
         LOGGER.debug("commit(): transaction end");
-        try {
-            transaction.commit();
-        } finally {
-            transaction = null;
+        if (transaction != null) {
+            try {
+                transaction.commit();
+            } finally {
+                transaction = null;
+            }
         }
     }
 
