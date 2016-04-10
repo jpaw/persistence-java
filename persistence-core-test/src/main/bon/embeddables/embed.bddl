@@ -33,9 +33,20 @@ package embedTest owner jpaw prefix jp {
         @Embeddable Add2Entity for myAdd2
     }
 
+    // inherited class which inherits the entity as well does not declare embeddables
     @Generator(noMapper)
-    entity PersonPlusExtraEntity category cfg is PersonPlusExtra inheritance tablePerClass {
+    entity PersonPlusExtraEntity is PersonPlusExtra inherits PersonEntity discriminator "6" {
+    }
+
+    // base entity which is based on inherited DTO must reference embeddables of DTO superclasses
+    @Generator(noMapper)
+    entity PersonPlusExtra2Entity category cfg is PersonPlusExtra inheritance tablePerClass {
         pk (personKey)
+        @Embeddable AddressEntity for homeAddress
+        @Embeddable AddressEntity for extra prefix ex suffix Tra
+        @Embeddable AddressEntity for addressWork
+        @Embeddable AddressEntity for evenMore
+        @Embeddable Add2Entity for myAdd2
     }
 
     @Generator(noMapper)

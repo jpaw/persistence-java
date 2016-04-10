@@ -19,6 +19,7 @@ package examples.pkey.entities owner scott prefix pkey {
 
     // example of an entity without a primary key
     entity NoPkEntity category tests is EDto {
+        @Embeddable EKeyEntity for myCompositeKey  // is no key here, but as the embeddable exists, it must be defined
     }
 
     // example of an entity with a single field primary key of type String
