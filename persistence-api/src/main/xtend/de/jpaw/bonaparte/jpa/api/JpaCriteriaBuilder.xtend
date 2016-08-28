@@ -22,10 +22,10 @@ import javax.persistence.criteria.Path
 import javax.persistence.criteria.Predicate
 import de.jpaw.bonaparte.pojos.api.DecimalFilter
 import java.math.BigDecimal
-import org.joda.time.LocalDate
-import org.joda.time.LocalDateTime
-import org.joda.time.Instant
-import org.joda.time.LocalTime
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.Instant
+import java.time.LocalTime
 
 public interface JpaFilter {
     def Predicate applyFilter(CriteriaBuilder cb, Path<?> from, FieldFilter f);

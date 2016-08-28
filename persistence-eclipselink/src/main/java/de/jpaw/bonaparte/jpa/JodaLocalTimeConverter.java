@@ -7,7 +7,7 @@ import org.eclipse.persistence.mappings.DatabaseMapping;
 import org.eclipse.persistence.mappings.converters.Converter;
 import org.eclipse.persistence.mappings.foundation.AbstractDirectMapping;
 import org.eclipse.persistence.sessions.Session;
-import org.joda.time.LocalTime;
+import java.time.LocalTime;
 
 public class JodaLocalTimeConverter implements Converter {
 
