@@ -10,16 +10,10 @@ import org.eclipse.persistence.mappings.DatabaseMapping;
 import org.eclipse.persistence.mappings.converters.Converter;
 import org.eclipse.persistence.mappings.foundation.AbstractDirectMapping;
 import org.eclipse.persistence.sessions.Session;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.jpaw.util.ByteArray;
-
-/** Standard session customizer, which adds types for the 4 supported Joda date/time types, as well as for ByteArray.
+/** Standard session customizer, which adds types for the JSON types.
  * Native UUIDs with Postgres work out of the box for Eclipselink.
  *
  */
@@ -30,11 +24,7 @@ public class BonaparteSessionCustomizer implements SessionCustomizer {
 
     public BonaparteSessionCustomizer() {
         LOGGER.info("BonaparteSessionCustomizer with JSON mapping created");
-        convertersPerType.put(ByteArray.class,          new ByteArrayConverter());
-        convertersPerType.put(LocalDateTime.class,      new JodaLocalDateTimeConverter());
-        convertersPerType.put(LocalTime.class,          new JodaLocalTimeConverter());
-        convertersPerType.put(LocalDate.class,          new JodaLocalDateConverter());
-        convertersPerType.put(Instant.class,            new JodaInstantConverter());
+//        convertersPerType.put(ByteArray.class,          new ByteArrayConverter());
         convertersPerType.put(NativeJsonObject.class,   new JsonConverter());
         convertersPerType.put(NativeJsonArray.class,    new ArrayConverter());
         convertersPerType.put(NativeJsonElement.class,  new ElementConverter());
