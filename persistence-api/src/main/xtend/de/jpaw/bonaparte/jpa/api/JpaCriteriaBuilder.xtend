@@ -3,8 +3,12 @@ package de.jpaw.bonaparte.jpa.api;
 import de.jpaw.bonaparte.pojos.api.AndFilter
 import de.jpaw.bonaparte.pojos.api.AsciiFilter
 import de.jpaw.bonaparte.pojos.api.BooleanFilter
+import de.jpaw.bonaparte.pojos.api.ByteFilter
 import de.jpaw.bonaparte.pojos.api.DayFilter
+import de.jpaw.bonaparte.pojos.api.DecimalFilter
+import de.jpaw.bonaparte.pojos.api.DoubleFilter
 import de.jpaw.bonaparte.pojos.api.FieldFilter
+import de.jpaw.bonaparte.pojos.api.FloatFilter
 import de.jpaw.bonaparte.pojos.api.InstantFilter
 import de.jpaw.bonaparte.pojos.api.IntFilter
 import de.jpaw.bonaparte.pojos.api.LongFilter
@@ -12,19 +16,20 @@ import de.jpaw.bonaparte.pojos.api.NotFilter
 import de.jpaw.bonaparte.pojos.api.NullFilter
 import de.jpaw.bonaparte.pojos.api.OrFilter
 import de.jpaw.bonaparte.pojos.api.SearchFilter
+import de.jpaw.bonaparte.pojos.api.ShortFilter
 import de.jpaw.bonaparte.pojos.api.TimeFilter
 import de.jpaw.bonaparte.pojos.api.TimestampFilter
 import de.jpaw.bonaparte.pojos.api.UnicodeFilter
+import de.jpaw.bonaparte.pojos.api.UuidFilter
 import de.jpaw.dp.Inject
 import de.jpaw.dp.Singleton
+import java.math.BigDecimal
 import javax.persistence.criteria.CriteriaBuilder
 import javax.persistence.criteria.Path
 import javax.persistence.criteria.Predicate
-import de.jpaw.bonaparte.pojos.api.DecimalFilter
-import java.math.BigDecimal
+import org.joda.time.Instant
 import org.joda.time.LocalDate
 import org.joda.time.LocalDateTime
-import org.joda.time.Instant
 import org.joda.time.LocalTime
 
 public interface JpaFilter {
@@ -179,6 +184,55 @@ public class JpaFilterImpl implements JpaFilter {
                         cb.greaterThanOrEqualTo(path as Path<LocalTime>, filter.lowerBound)
                     else
                         cb.between(path as Path<LocalTime>, filter.lowerBound, filter.upperBound)
+        ByteFilter:
+            return if (filter.valueList !== null)
+                        path.in(filter.valueList)
+                    else if (filter.equalsValue !== null)
+                        cb.equal(path, filter.equalsValue)
+                    else if (filter.lowerBound === null)
+                        cb.lessThanOrEqualTo(path as Path<Byte>, filter.upperBound)
+                    else if (filter.upperBound === null)
+                        cb.greaterThanOrEqualTo(path as Path<Byte>, filter.lowerBound)
+                    else
+                        cb.between(path as Path<Byte>, filter.lowerBound, filter.upperBound)
+        ShortFilter:
+            return if (filter.valueList !== null)
+                        path.in(filter.valueList)
+                    else if (filter.equalsValue !== null)
+                        cb.equal(path, filter.equalsValue)
+                    else if (filter.lowerBound === null)
+                        cb.lessThanOrEqualTo(path as Path<Short>, filter.upperBound)
+                    else if (filter.upperBound === null)
+                        cb.greaterThanOrEqualTo(path as Path<Short>, filter.lowerBound)
+                    else
+                        cb.between(path as Path<Short>, filter.lowerBound, filter.upperBound)
+        DoubleFilter:
+            return if (filter.valueList !== null)
+                        path.in(filter.valueList)
+                    else if (filter.equalsValue !== null)
+                        cb.equal(path, filter.equalsValue)
+                    else if (filter.lowerBound === null)
+                        cb.lessThanOrEqualTo(path as Path<Double>, filter.upperBound)
+                    else if (filter.upperBound === null)
+                        cb.greaterThanOrEqualTo(path as Path<Double>, filter.lowerBound)
+                    else
+                        cb.between(path as Path<Double>, filter.lowerBound, filter.upperBound)
+        FloatFilter:
+            return if (filter.valueList !== null)
+                        path.in(filter.valueList)
+                    else if (filter.equalsValue !== null)
+                        cb.equal(path, filter.equalsValue)
+                    else if (filter.lowerBound === null)
+                        cb.lessThanOrEqualTo(path as Path<Float>, filter.upperBound)
+                    else if (filter.upperBound === null)
+                        cb.greaterThanOrEqualTo(path as Path<Float>, filter.lowerBound)
+                    else
+                        cb.between(path as Path<Float>, filter.lowerBound, filter.upperBound)
+        UuidFilter:
+            return if (filter.valueList !== null)
+                        path.in(filter.valueList)
+                    else if (filter.equalsValue !== null)
+                        cb.equal(path, filter.equalsValue)
         default:
             throw new RuntimeException("Unrecognized field filter type: " + filter.ret$PQON)
         }
