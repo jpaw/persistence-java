@@ -3,7 +3,9 @@ package de.jpaw.bonaparte.jpa.api;
 import de.jpaw.bonaparte.pojos.api.AndFilter
 import de.jpaw.bonaparte.pojos.api.AsciiFilter
 import de.jpaw.bonaparte.pojos.api.BooleanFilter
+import de.jpaw.bonaparte.pojos.api.ByteArrayFilter
 import de.jpaw.bonaparte.pojos.api.ByteFilter
+import de.jpaw.bonaparte.pojos.api.BytesFilter
 import de.jpaw.bonaparte.pojos.api.DayFilter
 import de.jpaw.bonaparte.pojos.api.DecimalFilter
 import de.jpaw.bonaparte.pojos.api.DoubleFilter
@@ -229,6 +231,16 @@ public class JpaFilterImpl implements JpaFilter {
                     else
                         cb.between(path as Path<Float>, filter.lowerBound, filter.upperBound)
         UuidFilter:
+            return if (filter.valueList !== null)
+                        path.in(filter.valueList)
+                    else if (filter.equalsValue !== null)
+                        cb.equal(path, filter.equalsValue)
+        ByteArrayFilter:
+            return if (filter.valueList !== null)
+                        path.in(filter.valueList)
+                    else if (filter.equalsValue !== null)
+                        cb.equal(path, filter.equalsValue)
+        BytesFilter:
             return if (filter.valueList !== null)
                         path.in(filter.valueList)
                     else if (filter.equalsValue !== null)
