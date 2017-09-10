@@ -8,4 +8,7 @@ package inheritanceDto {
         required Ascii(8)   id;
         Ascii(80)           name;
     }
+    class Trk {
+        Long ttt;
+    }
 }
