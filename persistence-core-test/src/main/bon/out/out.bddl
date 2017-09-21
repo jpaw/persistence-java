@@ -6,7 +6,7 @@ package (de.jpaw.t9t) out.be.entities owner fortytwo prefix p28 {
     nameMappings map1 {
         sinkRef: new_name;
     }
-        
+
     category ^int {
         nameMappings map1
     }

@@ -6,6 +6,6 @@ package tests2 {
         Integer int2;
         Long long1   properties noJava;
         @Deprecated
-        Boolean noNoNo  properties noDDL, noJava; 
+        Boolean noNoNo  properties noDDL, noJava;
     }
 }

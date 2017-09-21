@@ -1,6 +1,6 @@
 package serializables {
     properties serialized, compact, compact2;
-    
+
     enum Color { RED, GREEN, BLUE }
     enum AlphaColor { RED="R", GREEN="G", BLUE="B" }
     enum VariableLength { ONE="1", NULL="", LONG = "This is a long text" }
@@ -43,7 +43,7 @@ package serializables {
         time(0) hhmmss time1a;
         time(3) hhmmss time2a;
     }
-    
+
     class SerializedObjs {
         Integer                mykey;
         (OtherTypes)           seriStd       properties serialized;

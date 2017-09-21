@@ -9,7 +9,7 @@ default
 
 package nwz {
     properties nullWhenZero;
-    
+
     class Nwzs {
         Integer      i;
         Long         l;

@@ -7,7 +7,7 @@ default
     tablespacepattern "system"
     ;
 
-// listeners provided here don't make sense, they should just showcase the generated code 
+// listeners provided here don't make sense, they should just showcase the generated code
 package testInheritanceEntities owner scott prefix test {
     grants rw {
         demorole: SELECT,INSERT,UPDATE,DELETE;

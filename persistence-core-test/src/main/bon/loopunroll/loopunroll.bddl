@@ -9,7 +9,7 @@ default
 
 package unroll.loops {
     properties unroll;
-    
+
     class UnrolledLoop {
         required Long key;
         required Decimal(14,2) required List<3>     amounts properties unroll;

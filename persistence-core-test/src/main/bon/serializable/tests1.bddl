@@ -24,7 +24,7 @@ package persistenceserializabletest owner scott prefix test {
     entity BoxedTypesEntity category tests is BoxedTypes serializable {
         pk (int1)
     }
-    
+
     entity SerializedExamples category tests is SerializedObjs {
         pk (mykey)
     }
