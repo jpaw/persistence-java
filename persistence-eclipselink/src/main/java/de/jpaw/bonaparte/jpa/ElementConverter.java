@@ -16,7 +16,7 @@ import de.jpaw.json.JsonParser;
 
 // convert between the Java type "NativeJsonElement(Object)" and a text, which in the database will be used as JSON
 // a type cast is required on the database to avoid Postgres's type errors!
-public class ElementConverter implements Converter {
+public class ElementConverter extends AbstractConverter implements Converter {
 
     private static final long serialVersionUID = 166787L;
     protected static final Logger LOGGER = LoggerFactory.getLogger(ElementConverter.class);
@@ -42,16 +42,11 @@ public class ElementConverter implements Converter {
     public void initialize(DatabaseMapping mapping, Session session) {
         ((AbstractDirectMapping) mapping).setFieldType(Types.NVARCHAR);  // candidates are JAVA_OBJECT, OTHER, NVARCHAR etc...
 
-
-        Object platform = session.getDatasourcePlatform();
-        final boolean isPostgres = platform != null && "PostgreSQLPlatform".equals(platform.toString());
-        LOGGER.info("Postgres platform detected? {}", isPostgres);
-
         // field type setting adapted from http://stackoverflow.com/questions/13346089/using-uuid-with-eclipselink-and-postgresql
         final DatabaseField field = mapping.getField();
         if (field != null) {
             LOGGER.info("mapping.getField is not null");
-            if (isPostgres) {
+            if (isPostgres(session)) {
                 field.setColumnDefinition("jsonb");
 //                field.setType(NativeJsonElement.class);
 //                field.setTypeName("java.lang.Object");

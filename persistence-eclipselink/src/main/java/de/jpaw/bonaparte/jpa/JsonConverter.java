@@ -26,7 +26,7 @@ import de.jpaw.json.JsonParser;
 //WITH FUNCTION json_intext(text) AS IMPLICIT;
 
 
-public class JsonConverter implements Converter {
+public class JsonConverter extends AbstractConverter implements Converter {
 
     private static final long serialVersionUID = 166786L;
     protected static final Logger LOGGER = LoggerFactory.getLogger(JsonConverter.class);
@@ -52,16 +52,11 @@ public class JsonConverter implements Converter {
     public void initialize(DatabaseMapping mapping, Session session) {
         ((AbstractDirectMapping) mapping).setFieldType(Types.NVARCHAR);  // candidates are JAVA_OBJECT, OTHER, NVARCHAR etc...
 
-
-        Object platform = session.getDatasourcePlatform();
-        final boolean isPostgres = platform != null && "PostgreSQLPlatform".equals(platform.toString());
-        LOGGER.info("Postgres platform detected? {}", isPostgres);
-
         // field type setting adapted from http://stackoverflow.com/questions/13346089/using-uuid-with-eclipselink-and-postgresql
         final DatabaseField field = mapping.getField();
         if (field != null) {
             LOGGER.info("mapping.getField is not null");
-            if (isPostgres) {
+            if (isPostgres(session)) {
                 field.setColumnDefinition("jsonb");
 //                field.setType(NativeJsonObject.class);
 //                field.setTypeName("java.util.Map");

@@ -1,51 +1,66 @@
-package de.jpaw.bonaparte.jpa;
-
-import org.hibernate.cfg.Configuration;
-import org.hibernate.dialect.Dialect;
-import org.hibernate.engine.spi.SessionFactoryImplementor;
-import org.hibernate.integrator.spi.Integrator;
-import org.hibernate.metamodel.source.MetadataImplementor;
-import org.hibernate.service.spi.SessionFactoryServiceRegistry;
-import org.hibernate.type.PostgresUUIDType;
-import org.hibernate.type.UUIDBinaryType;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import de.jpaw.util.ByteArray;
-
-public class UserTypeBonaparteIntegrator implements Integrator {
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserTypeBonaparteIntegrator.class);
-
-    @Override
-    public void disintegrate(SessionFactoryImplementor sessionFactory, SessionFactoryServiceRegistry serviceRegistry) {
-        // no-op
-    }
-
-    @Override
-    public void integrate(Configuration configuration, SessionFactoryImplementor sessionFactory, SessionFactoryServiceRegistry serviceRegistry) {
-        configuration.registerTypeOverride(new ByteArrayUserType(), new String[] { ByteArray.class.getName() });
-        configuration.registerTypeOverride(new JsonUserType(),      new String[] { NativeJsonObject.class.getName() });
-        configuration.registerTypeOverride(new ArrayUserType(),     new String[] { NativeJsonArray.class.getName() });
-        configuration.registerTypeOverride(new ElementUserType(),   new String[] { NativeJsonElement.class.getName() });
-
-//      String configuredDialect = configuration.getProperty("hibernate.dialect");
-        Dialect autodetectedDialect = sessionFactory.getDialect();
-        String dialect = autodetectedDialect.getClass().getCanonicalName();
-        LOGGER.info("Autodetected dialect is {}", dialect);
-
-        if ("org.hibernate.dialect.PostgreSQL9Dialect".equals(dialect)) {
-            LOGGER.info("Postgres9 DB configured - using special UUID DB type");
-            // configuration.registerTypeOverride(new PostgresUUIDType());
-            configuration.registerTypeOverride(new UuidType());  // must have "java.util.UUID" as getName()!
-        } else {
-            LOGGER.info("DB type is " + ( dialect == null ? "null" : dialect) + " - using binary UUID DB type");
-            configuration.registerTypeOverride(new UUIDBinaryType());
-        }
-    }
-
-    @Override
-    public void integrate(MetadataImplementor metadata, SessionFactoryImplementor sessionFactory, SessionFactoryServiceRegistry serviceRegistry) {
-        // no-op
-    }
-
-}
+//package de.jpaw.bonaparte.jpa;
+//
+//import org.hibernate.boot.Metadata;
+//import org.hibernate.cfg.Configuration;
+//import org.hibernate.dialect.Dialect;
+//import org.hibernate.engine.spi.SessionFactoryImplementor;
+//import org.hibernate.integrator.spi.Integrator;
+//import org.hibernate.service.spi.SessionFactoryServiceRegistry;
+//import org.hibernate.type.PostgresUUIDType;
+//import org.hibernate.type.UUIDBinaryType;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
+//
+//import de.jpaw.util.ByteArray;
+//
+//public class UserTypeBonaparteIntegrator implements Integrator {
+//    private static final Logger LOGGER = LoggerFactory.getLogger(UserTypeBonaparteIntegrator.class);
+//
+//    @Override
+//    public void disintegrate(SessionFactoryImplementor sessionFactory, SessionFactoryServiceRegistry serviceRegistry) {
+//        // no-op
+//    }
+//
+//    @Override
+//    public void integrate(Configuration configuration, SessionFactoryImplementor sessionFactory, SessionFactoryServiceRegistry serviceRegistry) {
+//        configuration.registerTypeOverride(new JsonUserType(),      new String[] { NativeJsonObject.class.getName() });
+//        configuration.registerTypeOverride(new ArrayUserType(),     new String[] { NativeJsonArray.class.getName() });
+//        configuration.registerTypeOverride(new ElementUserType(),   new String[] { NativeJsonElement.class.getName() });
+//
+////      String configuredDialect = configuration.getProperty("hibernate.dialect");
+//        Dialect autodetectedDialect = sessionFactory.getDialect();
+//        String dialect = autodetectedDialect.getClass().getCanonicalName();
+//        LOGGER.info("Autodetected dialect is {}", dialect);
+//
+//        if ("org.hibernate.dialect.PostgreSQL9Dialect".equals(dialect)) {
+//            LOGGER.info("Postgres9 DB configured - using special UUID DB type");
+//            // configuration.registerTypeOverride(new PostgresUUIDType());
+//            configuration.registerTypeOverride(new UuidType());  // must have "java.util.UUID" as getName()!
+//        } else {
+//            LOGGER.info("DB type is " + ( dialect == null ? "null" : dialect) + " - using binary UUID DB type");
+//            configuration.registerTypeOverride(new UUIDBinaryType());
+//        }
+//    }
+//
+//	@Override
+//	public void integrate(Metadata meta, SessionFactoryImplementor sessionFactory, SessionFactoryServiceRegistry serviceRegistry) {
+//		meta.getTypeResolver();
+//        configuration.registerTypeOverride(new JsonUserType(),      new String[] { NativeJsonObject.class.getName() });
+//        configuration.registerTypeOverride(new ArrayUserType(),     new String[] { NativeJsonArray.class.getName() });
+//        configuration.registerTypeOverride(new ElementUserType(),   new String[] { NativeJsonElement.class.getName() });
+//
+////      String configuredDialect = configuration.getProperty("hibernate.dialect");
+//        Dialect autodetectedDialect = meta.getDatabase().getDialect();
+//        String dialect = autodetectedDialect.getClass().getCanonicalName();
+//        LOGGER.info("Autodetected dialect is {}", dialect);
+//
+//        if (dialect.startsWith("org.hibernate.dialect.PostgreSQL9") {
+//            LOGGER.info("Postgres9 DB configured - using special UUID DB type");
+//            // configuration.registerTypeOverride(new PostgresUUIDType());
+//            configuration.registerTypeOverride(new UuidType());  // must have "java.util.UUID" as getName()!
+//        } else {
+//            LOGGER.info("DB type is " + ( dialect == null ? "null" : dialect) + " - using binary UUID DB type");
+//            configuration.registerTypeOverride(new UUIDBinaryType());
+//        }
+//	}
+//}

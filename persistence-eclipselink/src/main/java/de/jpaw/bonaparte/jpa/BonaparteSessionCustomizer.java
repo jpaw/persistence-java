@@ -3,6 +3,7 @@ package de.jpaw.bonaparte.jpa;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import org.eclipse.persistence.config.SessionCustomizer;
 import org.eclipse.persistence.descriptors.ClassDescriptor;
@@ -10,17 +11,11 @@ import org.eclipse.persistence.mappings.DatabaseMapping;
 import org.eclipse.persistence.mappings.converters.Converter;
 import org.eclipse.persistence.mappings.foundation.AbstractDirectMapping;
 import org.eclipse.persistence.sessions.Session;
-import org.joda.time.Instant;
-import org.joda.time.LocalDate;
-import org.joda.time.LocalDateTime;
-import org.joda.time.LocalTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.jpaw.util.ByteArray;
-
-/** Standard session customizer, which adds types for the 4 supported Joda date/time types, as well as for ByteArray.
- * Native UUIDs with Postgres work out of the box for Eclipselink.
+/** Standard session customizer, which adds types for the UUID type to map to Postgres UUID
+ * Native UUIDs with Postgres no longer work out of the box for Eclipselink (they once did!)
  *
  */
 public class BonaparteSessionCustomizer implements SessionCustomizer {
@@ -30,11 +25,7 @@ public class BonaparteSessionCustomizer implements SessionCustomizer {
 
     public BonaparteSessionCustomizer() {
         LOGGER.info("BonaparteSessionCustomizer with JSON mapping created");
-        convertersPerType.put(ByteArray.class,          new ByteArrayConverter());
-        convertersPerType.put(LocalDateTime.class,      new JodaLocalDateTimeConverter());
-        convertersPerType.put(LocalTime.class,          new JodaLocalTimeConverter());
-        convertersPerType.put(LocalDate.class,          new JodaLocalDateConverter());
-        convertersPerType.put(Instant.class,            new JodaInstantConverter());
+        convertersPerType.put(UUID.class,               new UUIDConverter());
         convertersPerType.put(NativeJsonObject.class,   new JsonConverter());
         convertersPerType.put(NativeJsonArray.class,    new ArrayConverter());
         convertersPerType.put(NativeJsonElement.class,  new ElementConverter());
@@ -65,5 +56,4 @@ public class BonaparteSessionCustomizer implements SessionCustomizer {
         }
         return result;
     }
-
 }
