@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.jpaw.bonaparte.core.BonaparteJsonEscaper;
+import de.jpaw.bonaparte.jpa.json.NativeJsonArray;
 import de.jpaw.json.JsonException;
 import de.jpaw.json.JsonParser;
 

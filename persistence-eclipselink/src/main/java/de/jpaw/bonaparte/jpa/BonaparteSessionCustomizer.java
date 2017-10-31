@@ -14,6 +14,10 @@ import org.eclipse.persistence.sessions.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.jpaw.bonaparte.jpa.json.NativeJsonArray;
+import de.jpaw.bonaparte.jpa.json.NativeJsonElement;
+import de.jpaw.bonaparte.jpa.json.NativeJsonObject;
+
 /** Standard session customizer, which adds types for the UUID type to map to Postgres UUID
  * Native UUIDs with Postgres no longer work out of the box for Eclipselink (they once did!)
  *
