@@ -19,12 +19,13 @@
     <properties>
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
-        <bonaparte-plugin.version>4.4.23</bonaparte-plugin.version>
+        <bonaparte-plugin.version>4.5.0-SNAPSHOT</bonaparte-plugin.version>
 
         <!-- public libraries -->
         <eclipselink.version>2.7.0</eclipselink.version>
         <hibernate.version>5.2.12.Final</hibernate.version>
         <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
+        <postgres.driver.version>42.1.4</postgres.driver.version>
     </properties>
 
     <dependencyManagement>
@@ -38,6 +39,22 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    
+    <dependencies>
+        <!-- Need an API dependency. There is no official / OR mapper independent API jar apparently, see https://github.com/javaee/jpa-spec/issues/60 -->
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>javax.persistence</artifactId>
+            <version>2.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <pluginManagement>
@@ -210,7 +227,7 @@
     <modules>
         <module>../persistence-bom/pom.xml</module>
         <module>../persistence-core/pom.xml</module>
-        <module>../persistence-jpa21/pom.xml</module>
+        <module>../persistence-postgres/pom.xml</module>
         <module>../persistence-api/pom.xml</module>
         <module>../persistence-refs/pom.xml</module>
         <module>../persistence-hibernate/pom.xml</module>

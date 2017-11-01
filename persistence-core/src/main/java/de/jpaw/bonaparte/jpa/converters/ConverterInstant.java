@@ -12,10 +12,10 @@ import org.slf4j.LoggerFactory;
 @Converter(autoApply = true)
 public class ConverterInstant implements AttributeConverter<Instant, Timestamp> {
 	static final private Logger LOGGER = LoggerFactory.getLogger(ConverterInstant.class);
-	public ConverterInstant() {
-		System.out.println("************************************************************** New converter");
-		LOGGER.info("************************************************************** New converter");
-	}
+//	public ConverterInstant() {
+//		System.out.println("************************************************************** New converter");
+//		LOGGER.info("************************************************************** New converter");
+//	}
 	
     @Override
     public Timestamp convertToDatabaseColumn(Instant attribute) {

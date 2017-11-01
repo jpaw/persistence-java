@@ -23,14 +23,6 @@
             <groupId>de.jpaw</groupId>
             <artifactId>bonaparte-refs</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-            <version>2.1.0</version>
-            <scope>provided</scope>
-        </dependency>
-
     </dependencies>
 
 </project>
