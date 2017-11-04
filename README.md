@@ -27,8 +27,8 @@ or just
 
 ## Prerequisites
 
-You need the bonaparte DSL of version 4.5.0 (4.4.23 is fine if you do not need JSON type filed (Array, Element, Json) or serialized storage of BonaPortables).
-You need bonaparte-java of version 4.4.23.
+You need the bonaparte DSL and bonaparte-java of version 4.4.23 or newer.
+The upcoming 4.5.x releases will provide additional support for JPA 2.1 (Index creation and increased use of AttributeConverters).
 
 
 ## News / Changes
