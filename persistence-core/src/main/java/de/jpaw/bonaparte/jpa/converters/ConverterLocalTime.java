@@ -1,10 +1,12 @@
 package de.jpaw.bonaparte.jpa.converters;
 
-import org.joda.time.LocalTime;
 import java.sql.Time;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
+
+import org.joda.time.DateTimeZone;
+import org.joda.time.LocalTime;
 
 @Converter(autoApply = true)
 public class ConverterLocalTime implements AttributeConverter<LocalTime, Time> {
@@ -16,6 +18,6 @@ public class ConverterLocalTime implements AttributeConverter<LocalTime, Time> {
 
     @Override
     public LocalTime convertToEntityAttribute(Time dbData) {
-        return dbData == null ? null : new LocalTime(dbData.getTime());
+        return dbData == null ? null : new LocalTime(dbData.getTime(), DateTimeZone.UTC);
     }
 }

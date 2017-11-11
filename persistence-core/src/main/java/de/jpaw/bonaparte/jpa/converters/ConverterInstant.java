@@ -11,11 +11,11 @@ import org.slf4j.LoggerFactory;
 
 @Converter(autoApply = true)
 public class ConverterInstant implements AttributeConverter<Instant, Timestamp> {
-	static final private Logger LOGGER = LoggerFactory.getLogger(ConverterInstant.class);
-	public ConverterInstant() {
-		LOGGER.debug("Conversion Joda Instant / sql Timestamp instantiated");
-	}
-	
+    static final private Logger LOGGER = LoggerFactory.getLogger(ConverterInstant.class);
+    public ConverterInstant() {
+        LOGGER.debug("Conversion Joda Instant / sql Timestamp instantiated");
+    }
+    
     @Override
     public Timestamp convertToDatabaseColumn(Instant attribute) {
         return attribute == null ? null : new Timestamp(attribute.getMillis());
