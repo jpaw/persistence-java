@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>persistence-base</artifactId>
-    <version>4.7.0</version>
+    <version>4.7.1</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings for all bonaparte JPA projects</description>
@@ -19,7 +19,7 @@
     <properties>
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
-        <bonaparte-plugin.version>4.7.0</bonaparte-plugin.version>
+        <bonaparte-plugin.version>4.7.1</bonaparte-plugin.version>
 
         <!-- public libraries -->
         <eclipselink.version>2.7.1</eclipselink.version>
@@ -33,7 +33,7 @@
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>bonaparte-bom</artifactId>
-                <version>4.7.0</version>
+                <version>4.7.1</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
