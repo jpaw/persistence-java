@@ -5,12 +5,12 @@
     <parent>
         <groupId>de.jpaw</groupId>
         <artifactId>jpaw-se-parent</artifactId>
-        <version>1.2.2</version>
+        <version>1.3.0</version>
         <relativePath/>
     </parent>
 
     <artifactId>persistence-base</artifactId>
-    <version>4.8.3</version>
+    <version>4.9.0</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings for all bonaparte JPA projects</description>
@@ -19,12 +19,12 @@
     <properties>
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
-        <bonaparte-plugin.version>4.8.2</bonaparte-plugin.version>
+        <bonaparte-plugin.version>4.9.0</bonaparte-plugin.version>
 
         <!-- public libraries -->
         <eclipselink.version>2.7.3</eclipselink.version>
-        <hibernate.version>5.3.5.Final</hibernate.version>
-        <hibernate-validator.version>6.0.12.Final</hibernate-validator.version>
+        <hibernate.version>5.3.6.Final</hibernate.version>
+        <hibernate-validator.version>6.0.13.Final</hibernate-validator.version>
         <postgres.driver.version>42.2.4</postgres.driver.version>
     </properties>
 
@@ -33,7 +33,7 @@
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>bonaparte-bom</artifactId>
-                <version>4.8.3</version>
+                <version>4.9.0</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -140,7 +140,7 @@
                 <plugin>
                     <groupId>org.eclipse.xtext</groupId>
                     <artifactId>xtext-maven-plugin</artifactId>
-                    <version>${xtend.version}</version>
+                    <version>${xtend-plugin.version}</version>
                     <executions>
                         <execution>
                             <phase>generate-sources</phase>
@@ -185,11 +185,6 @@
                             <artifactId>de.jpaw.bonaparte.jpa.dsl</artifactId>
                             <version>${bonaparte-plugin.version}</version>
                         </dependency>
-						<dependency>
-						    <groupId>org.eclipse.platform</groupId>
-						    <artifactId>org.eclipse.equinox.common</artifactId>
-						    <version>3.10.0</version>
-						</dependency>
                     </dependencies>
                 </plugin>
             </plugins>
