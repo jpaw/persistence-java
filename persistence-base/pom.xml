@@ -22,9 +22,9 @@
         <bonaparte-plugin.version>4.10.1</bonaparte-plugin.version>
 
         <!-- public libraries -->
-        <eclipselink.version>2.7.3</eclipselink.version>
-        <hibernate.version>5.3.7.Final</hibernate.version>
-        <hibernate-validator.version>6.0.13.Final</hibernate-validator.version>
+        <eclipselink.version>2.7.4</eclipselink.version>
+        <hibernate.version>5.3.8.Final</hibernate.version>
+        <hibernate-validator.version>6.0.15.Final</hibernate-validator.version>
         <postgres.driver.version>42.2.5</postgres.driver.version>
     </properties>
 
