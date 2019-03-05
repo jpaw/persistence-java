@@ -5,12 +5,12 @@
     <parent>
         <groupId>de.jpaw</groupId>
         <artifactId>jpaw-se-parent</artifactId>
-        <version>1.4.1</version>
+        <version>1.5.0</version>
         <relativePath/>
     </parent>
 
     <artifactId>persistence-base</artifactId>
-    <version>4.10.1</version>
+    <version>4.11.0</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings for all bonaparte JPA projects</description>
@@ -19,11 +19,11 @@
     <properties>
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
-        <bonaparte-plugin.version>4.10.1</bonaparte-plugin.version>
+        <bonaparte-plugin.version>4.11.0</bonaparte-plugin.version>
 
         <!-- public libraries -->
         <eclipselink.version>2.7.4</eclipselink.version>
-        <hibernate.version>5.3.8.Final</hibernate.version>
+        <hibernate.version>5.3.9.Final</hibernate.version>
         <hibernate-validator.version>6.0.15.Final</hibernate-validator.version>
         <postgres.driver.version>42.2.5</postgres.driver.version>
     </properties>
@@ -33,7 +33,7 @@
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>bonaparte-bom</artifactId>
-                <version>4.10.1</version>
+                <version>4.11.0</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -140,7 +140,7 @@
                 <plugin>
                     <groupId>org.eclipse.xtext</groupId>
                     <artifactId>xtext-maven-plugin</artifactId>
-                    <version>${xtend-plugin.version}</version>
+                    <version>${xtext.version}</version>
                     <executions>
                         <execution>
                             <phase>generate-sources</phase>
