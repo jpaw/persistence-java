@@ -23,8 +23,8 @@
 
         <!-- public libraries -->
         <eclipselink.version>2.7.6</eclipselink.version>
-        <hibernate.version>5.4.12.Final</hibernate.version>
-        <hibernate-validator.version>6.0.18.Final</hibernate-validator.version>
+        <hibernate.version>5.4.17.Final</hibernate.version>
+        <hibernate-validator.version>6.0.20.Final</hibernate-validator.version>
         <postgres.driver.version>42.2.5</postgres.driver.version>
     </properties>
 
