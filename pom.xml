@@ -5,7 +5,7 @@
     <parent>
         <groupId>de.jpaw</groupId>
         <artifactId>jpaw-se-parent</artifactId>
-        <version>1.7.1</version>
+        <version>1.8.0</version>
         <relativePath/>
     </parent>
 
@@ -33,7 +33,7 @@
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>bonaparte-bom</artifactId>
-                <version>4.40.2</version>
+                <version>4.41.0</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -220,14 +220,14 @@
     </reporting>
 
     <modules>
-        <module>../persistence-bom/pom.xml</module>
-        <module>../persistence-core/pom.xml</module>
-        <module>../persistence-postgres/pom.xml</module>
-        <module>../persistence-api/pom.xml</module>
-        <module>../persistence-refs/pom.xml</module>
-        <module>../persistence-hibernate/pom.xml</module>
-        <module>../persistence-eclipselink/pom.xml</module>
-        <module>../persistence-core-test/pom.xml</module>
+        <module>persistence-bom/pom.xml</module>
+        <module>persistence-core/pom.xml</module>
+        <module>persistence-postgres/pom.xml</module>
+        <module>persistence-api/pom.xml</module>
+        <module>persistence-refs/pom.xml</module>
+        <module>persistence-hibernate/pom.xml</module>
+        <module>persistence-eclipselink/pom.xml</module>
+        <module>persistence-core-test/pom.xml</module>
     </modules>
 
 </project>

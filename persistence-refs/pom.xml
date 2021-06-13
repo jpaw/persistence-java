@@ -5,7 +5,7 @@
         <groupId>de.jpaw</groupId>
         <artifactId>persistence-base</artifactId>
         <version>4.40.2</version>
-        <relativePath>../persistence-base</relativePath>
+        <relativePath>..</relativePath>
     </parent>
 
     <artifactId>persistence-refs</artifactId>

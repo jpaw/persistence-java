@@ -9,4 +9,4 @@ echo "Cleaning repo folder..."
 git clean -fdx
 
 echo "executing mvn $GOAL..."
-(cd persistence-base && mvn $GOAL)
+mvn $GOAL

@@ -16,7 +16,7 @@ The projects have the following contents:
 This project uses maven3 as a build tool. Just run
 
 ```sh
-    (cd persistence-base && mvn install)
+    mvn install
 ```
 
 or just
