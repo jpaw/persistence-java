@@ -5,7 +5,7 @@
     <parent>
         <groupId>de.jpaw</groupId>
         <artifactId>jpaw-se-parent</artifactId>
-        <version>1.8.0</version>
+        <version>1.9.0</version>
         <relativePath/>
     </parent>
 
@@ -22,9 +22,13 @@
         <bonaparte-plugin.version>4.40.2</bonaparte-plugin.version>
 
         <!-- public libraries -->
-        <eclipselink.version>2.7.6</eclipselink.version>
+        <jakarta.validation-api.version>2.0.2</jakarta.validation-api.version>
+        <jakarta.persistence-api.version>2.2.3</jakarta.persistence-api.version>
+
+        <eclipselink.version>2.7.8</eclipselink.version>
         <hibernate.version>5.5.0.Final</hibernate.version>
         <hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
+
         <postgres.driver.version>42.2.20</postgres.driver.version>
     </properties>
 
@@ -33,7 +37,7 @@
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>bonaparte-bom</artifactId>
-                <version>4.41.0</version>
+                <version>4.42.0</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -42,17 +46,17 @@
     
     <dependencies>
         <!-- Need an API dependency. There is no official / OR mapper independent API jar apparently, see https://github.com/javaee/jpa-spec/issues/60 -->
+        <!-- this should be jakarta.persistence-api:2.2.3, but hibernate 5.5.0 still depends on javax!!! -->
         <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-            <version>2.2.0</version>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>${jakarta.persistence-api.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>2.0.1.Final</version>
-            <scope>provided</scope>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>${jakarta.validation-api.version}</version>
         </dependency>
     </dependencies>
 
