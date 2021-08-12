@@ -26,35 +26,35 @@ import de.jpaw.bonaparte.pojos.api.UuidFilter
 import de.jpaw.dp.Inject
 import de.jpaw.dp.Singleton
 import java.math.BigDecimal
-import javax.persistence.criteria.CriteriaBuilder
-import javax.persistence.criteria.Path
-import javax.persistence.criteria.Predicate
+import jakarta.persistence.criteria.CriteriaBuilder
+import jakarta.persistence.criteria.Path
+import jakarta.persistence.criteria.Predicate
 import org.joda.time.Instant
 import org.joda.time.LocalDate
 import org.joda.time.LocalDateTime
 import org.joda.time.LocalTime
 
-public interface JpaFilter {
+interface JpaFilter {
     def Predicate applyFilter(CriteriaBuilder cb, Path<?> from, FieldFilter f);
 }
 
-public interface JpaPathResolver {
+interface JpaPathResolver {
     def Path<?> getPath(String fieldName);
 }
 
-public class JpaCriteriaBuilder {
+class JpaCriteriaBuilder {
     @Inject
     var JpaFilter jpaFilter
 
     val JpaPathResolver pathResolver
     val CriteriaBuilder cb
 
-    public new(JpaPathResolver pathResolver, CriteriaBuilder cb) {
+    new(JpaPathResolver pathResolver, CriteriaBuilder cb) {
         this.pathResolver = pathResolver
         this.cb = cb
     }
 
-    def public Predicate buildPredicate(SearchFilter filter) {
+    def Predicate buildPredicate(SearchFilter filter) {
         if (filter === null)
             return null;
         switch (filter) {
@@ -75,9 +75,9 @@ public class JpaCriteriaBuilder {
 }
 
 @Singleton
-public class JpaFilterImpl implements JpaFilter {
+class JpaFilterImpl implements JpaFilter {
 
-    override public applyFilter(CriteriaBuilder cb, Path<?> path, FieldFilter filter) {
+    override applyFilter(CriteriaBuilder cb, Path<?> path, FieldFilter filter) {
         switch (filter) {
         NullFilter:
             return cb.isNull(path)

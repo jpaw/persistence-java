@@ -2,8 +2,8 @@ package de.jpaw.bonaparte.jpa.converters;
 
 import java.sql.Timestamp;
 
-import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
+import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Converter;
 
 import org.joda.time.Instant;
 import org.slf4j.Logger;

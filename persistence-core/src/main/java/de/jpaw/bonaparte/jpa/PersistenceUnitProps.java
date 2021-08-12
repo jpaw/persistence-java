@@ -13,10 +13,10 @@ import java.util.Map;
  * With Hibernate, the properties obtained from the EMF are a mixture of system properties implicit internal properties plus the provided ones,
  *  however the JDBC password is asterisked out. (****)
  * From the EntityManager, we get 5 properties here (as of Hibernate 4.2.2):
- * - javax.persistence.lock.timeout
- * - javax.persistence.cache.storeMode
- * - javax.persistence.cache.retrieveMode
- * - javax.persistence.lock.scope
+ * - jakarta.persistence.lock.timeout
+ * - jakarta.persistence.cache.storeMode
+ * - jakarta.persistence.cache.retrieveMode
+ * - jakarta.persistence.lock.scope
  * - org.hibernate.flushMode
  *
  * Additionally supplied own properties can be retrieved for both OR mappers.
@@ -25,19 +25,19 @@ public class PersistenceUnitProps {
 
     /** Just a shorthand to get the JDBC driver name from the persistence.xml. */
     public static String getJdbcDriver(Map<String,Object> properties) {
-        return (String)properties.get("javax.persistence.jdbc.driver");
+        return (String)properties.get("jakarta.persistence.jdbc.driver");
     }
     /** Just a shorthand to get the JDBC connection URL from the persistence.xml. */
     public static String getJdbcUrl(Map<String,Object> properties) {
-        return (String)properties.get("javax.persistence.jdbc.url");
+        return (String)properties.get("jakarta.persistence.jdbc.url");
     }
     /** Just a shorthand to get the JDBC user name from the persistence.xml. */
     public static String getJdbcUserId(Map<String,Object> properties) {
-        return (String)properties.get("javax.persistence.jdbc.user");
+        return (String)properties.get("jakarta.persistence.jdbc.user");
     }
     /** Just a shorthand to get the JDBC user's password from the persistence.xml. */
     public static String getJdbcPassword(Map<String,Object> properties) {
-        return (String)properties.get("javax.persistence.jdbc.password");
+        return (String)properties.get("jakarta.persistence.jdbc.password");
     }
 
     // access to the "provider" is not possible? So we have to guess it from other properties.
