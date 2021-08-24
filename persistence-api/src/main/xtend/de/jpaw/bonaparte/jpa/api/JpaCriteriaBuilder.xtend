@@ -26,13 +26,13 @@ import de.jpaw.bonaparte.pojos.api.UuidFilter
 import de.jpaw.dp.Inject
 import de.jpaw.dp.Singleton
 import java.math.BigDecimal
-import jakarta.persistence.criteria.CriteriaBuilder
-import jakarta.persistence.criteria.Path
-import jakarta.persistence.criteria.Predicate
-import org.joda.time.Instant
-import org.joda.time.LocalDate
-import org.joda.time.LocalDateTime
-import org.joda.time.LocalTime
+import javax.persistence.criteria.CriteriaBuilder
+import javax.persistence.criteria.Path
+import javax.persistence.criteria.Predicate
+import java.time.Instant
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.LocalTime
 
 interface JpaFilter {
     def Predicate applyFilter(CriteriaBuilder cb, Path<?> from, FieldFilter f);

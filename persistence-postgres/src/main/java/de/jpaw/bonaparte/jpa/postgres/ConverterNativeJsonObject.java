@@ -3,8 +3,8 @@ package de.jpaw.bonaparte.jpa.postgres;
 import java.sql.SQLException;
 import java.util.Map;
 
-import jakarta.persistence.AttributeConverter;
-import jakarta.persistence.Converter;
+import javax.persistence.AttributeConverter;
+import javax.persistence.Converter;
 
 import org.postgresql.util.PGobject;
 

@@ -2,8 +2,8 @@ package de.jpaw.bonaparte.jpa.converters;
 
 import java.util.Map;
 
-import jakarta.persistence.AttributeConverter;
-import jakarta.persistence.Converter;
+import javax.persistence.AttributeConverter;
+import javax.persistence.Converter;
 
 import de.jpaw.bonaparte.core.BonaparteJsonEscaper;
 import de.jpaw.bonaparte.jpa.json.StringJsonObject;
