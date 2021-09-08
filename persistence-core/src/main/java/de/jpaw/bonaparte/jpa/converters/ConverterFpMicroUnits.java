@@ -14,7 +14,7 @@ public class ConverterFpMicroUnits implements AttributeConverter<MicroUnits, Big
     public BigDecimal convertToDatabaseColumn(MicroUnits data) {
         if (data == null)
             return null;
-        return BigDecimal.valueOf(data.getMantissa(), data.getScale());
+        return BigDecimal.valueOf(data.getMantissa(), data.scale());
     }
 
     @Override

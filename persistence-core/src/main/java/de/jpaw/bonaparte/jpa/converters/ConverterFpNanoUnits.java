@@ -14,7 +14,7 @@ public class ConverterFpNanoUnits implements AttributeConverter<NanoUnits, BigDe
     public BigDecimal convertToDatabaseColumn(NanoUnits data) {
         if (data == null)
             return null;
-        return BigDecimal.valueOf(data.getMantissa(), data.getScale());
+        return BigDecimal.valueOf(data.getMantissa(), data.scale());
     }
 
     @Override
