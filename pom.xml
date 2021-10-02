@@ -5,12 +5,12 @@
     <parent>
         <groupId>de.jpaw</groupId>
         <artifactId>jpaw-se-parent</artifactId>
-        <version>2.1.1</version>
+        <version>2.2.0</version>
         <relativePath/>
     </parent>
 
     <artifactId>persistence-base</artifactId>
-    <version>4.70.0</version>
+    <version>4.80.0</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings for all bonaparte JPA projects</description>
@@ -19,7 +19,7 @@
     <properties>
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
-        <bonaparte-plugin.version>4.70.5</bonaparte-plugin.version>
+        <bonaparte-plugin.version>4.80.0</bonaparte-plugin.version>
 
         <!-- public libraries -->
         <jakarta.persistence-api.version>2.2.3</jakarta.persistence-api.version>
@@ -35,7 +35,7 @@
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>bonaparte-bom</artifactId>
-                <version>4.70.0</version>
+                <version>4.80.0</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
