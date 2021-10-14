@@ -14,7 +14,7 @@ public class ConverterFpMilliUnits implements AttributeConverter<MilliUnits, Big
     public BigDecimal convertToDatabaseColumn(MilliUnits data) {
         if (data == null)
             return null;
-        return BigDecimal.valueOf(data.getMantissa(), data.scale());
+        return data.toBigDecimal();
     }
 
     @Override
