@@ -2,8 +2,8 @@ package de.jpaw.bonaparte.jpa.converters;
 
 import java.math.BigDecimal;
 
-import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
+import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Converter;
 
 import de.jpaw.fixedpoint.types.NanoUnits;
 

@@ -1,6 +1,6 @@
 package de.jpaw.bonaparte.jpa.refs;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import de.jpaw.bonaparte.refs.PersistenceProvider;
 

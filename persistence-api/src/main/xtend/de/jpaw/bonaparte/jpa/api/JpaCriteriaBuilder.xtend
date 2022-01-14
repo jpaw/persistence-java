@@ -26,9 +26,9 @@ import de.jpaw.bonaparte.pojos.api.UuidFilter
 import de.jpaw.dp.Inject
 import de.jpaw.dp.Singleton
 import java.math.BigDecimal
-import javax.persistence.criteria.CriteriaBuilder
-import javax.persistence.criteria.Path
-import javax.persistence.criteria.Predicate
+import jakarta.persistence.criteria.CriteriaBuilder
+import jakarta.persistence.criteria.Path
+import jakarta.persistence.criteria.Predicate
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
