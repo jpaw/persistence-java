@@ -25,6 +25,6 @@ public class ConverterFpNanoUnits implements AttributeConverter<NanoUnits, BigDe
             return NanoUnits.ZERO;
         if (rawData.compareTo(BigDecimal.ONE) == 0)
             return NanoUnits.ONE;
-        return NanoUnits.of(rawData);
+        return NanoUnits.valueOf(rawData);
     }
 }

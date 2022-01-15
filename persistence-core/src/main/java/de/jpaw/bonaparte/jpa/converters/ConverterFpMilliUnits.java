@@ -25,6 +25,6 @@ public class ConverterFpMilliUnits implements AttributeConverter<MilliUnits, Big
             return MilliUnits.ZERO;
         if (rawData.compareTo(BigDecimal.ONE) == 0)
             return MilliUnits.ONE;
-        return MilliUnits.of(rawData);
+        return MilliUnits.valueOf(rawData);
     }
 }

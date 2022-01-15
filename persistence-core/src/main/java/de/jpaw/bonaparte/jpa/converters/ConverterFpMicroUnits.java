@@ -25,6 +25,6 @@ public class ConverterFpMicroUnits implements AttributeConverter<MicroUnits, Big
             return MicroUnits.ZERO;
         if (rawData.compareTo(BigDecimal.ONE) == 0)
             return MicroUnits.ONE;
-        return MicroUnits.of(rawData);
+        return MicroUnits.valueOf(rawData);
     }
 }
