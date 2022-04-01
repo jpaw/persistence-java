@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>persistence-base</artifactId>
-    <version>5.0.0</version>
+    <version>5.0.1</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings for all bonaparte JPA projects</description>
