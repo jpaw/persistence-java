@@ -5,7 +5,7 @@
     <parent>
         <groupId>de.jpaw</groupId>
         <artifactId>jpaw-se-parent</artifactId>
-        <version>3.0.0</version>
+        <version>3.0.1</version>
         <relativePath/>
     </parent>
 
@@ -19,15 +19,15 @@
     <properties>
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
-        <bonaparte-plugin.version>5.0.0</bonaparte-plugin.version>
+        <bonaparte-plugin.version>5.0.1</bonaparte-plugin.version>
 
         <!-- public libraries -->
         <jakarta.persistence-api.version>3.0.0</jakarta.persistence-api.version>
 
         <eclipselink.version>3.0.2</eclipselink.version>
-        <hibernate.version>6.0.0.Beta3</hibernate.version>
+        <hibernate.version>6.0.0.Final</hibernate.version>
 
-        <postgres.driver.version>42.2.24</postgres.driver.version>
+        <postgres.driver.version>42.3.3</postgres.driver.version>
     </properties>
 
     <dependencyManagement>
@@ -35,7 +35,7 @@
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>bonaparte-bom</artifactId>
-                <version>5.0.0</version>
+                <version>5.0.1</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -149,6 +149,9 @@
                         </execution>
                     </executions>
                     <configuration>
+                        <javaSourceVersion>11</javaSourceVersion>
+                        <compilerSourceLevel>11</compilerSourceLevel>
+                        <compilerTargetLevel>11</compilerTargetLevel>
                         <sourceRoots>
                             <sourceRoot>${project.basedir}/src/main/bon</sourceRoot>
                         </sourceRoots>
