@@ -5,7 +5,7 @@
     <parent>
         <groupId>de.jpaw</groupId>
         <artifactId>jpaw-se-parent</artifactId>
-        <version>3.0.1</version>
+        <version>3.0.2</version>
         <relativePath/>
     </parent>
 
@@ -26,6 +26,7 @@
 
         <eclipselink.version>3.0.2</eclipselink.version>
         <hibernate.version>6.0.1.Final</hibernate.version>
+        <hibernate-types.version>2.16.2</hibernate-types.version>
 
         <postgres.driver.version>42.3.5</postgres.driver.version>
     </properties>
