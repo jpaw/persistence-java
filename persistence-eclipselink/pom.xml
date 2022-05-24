@@ -5,7 +5,7 @@
     <parent>
         <groupId>de.jpaw</groupId>
         <artifactId>persistence-base</artifactId>
-        <version>5.0.2</version>
+        <version>5.0.3</version>
     </parent>
 
     <artifactId>persistence-eclipselink</artifactId>
