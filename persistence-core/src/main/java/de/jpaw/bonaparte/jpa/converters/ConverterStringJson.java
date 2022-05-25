@@ -18,7 +18,6 @@ public class ConverterStringJson implements AttributeConverter<Map<String, Objec
     public Map<String, Object> convertToEntityAttribute(String data) {
     	if (data == null || data.length() == 0)
     		return null;
-        Map<String, Object> l = new JsonParser(data, true).parseObject();
-        return l;
+        return new JsonParser(data, false).parseObject();
     }
 }

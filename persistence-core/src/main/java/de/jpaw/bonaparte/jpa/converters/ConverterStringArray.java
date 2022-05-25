@@ -18,7 +18,6 @@ public class ConverterStringArray implements AttributeConverter<List, String> {
     public List convertToEntityAttribute(String data) {
     	if (data == null || data.length() == 0)
     		return null;
-        final List l = new JsonParser(data, true).parseArray();
-        return l;
+        return new JsonParser(data, false).parseArray();
     }
 }
