@@ -5,7 +5,7 @@
     <parent>
         <groupId>de.jpaw</groupId>
         <artifactId>jpaw-se-parent</artifactId>
-        <version>3.0.3</version>
+        <version>3.0.4</version>
         <relativePath/>
     </parent>
 
@@ -19,7 +19,7 @@
     <properties>
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
-        <bonaparte-plugin.version>5.0.3</bonaparte-plugin.version>
+        <bonaparte-plugin.version>5.0.4</bonaparte-plugin.version>
 
         <!-- public libraries -->
         <jakarta.persistence-api.version>3.0.0</jakarta.persistence-api.version>
@@ -36,7 +36,7 @@
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>bonaparte-bom</artifactId>
-                <version>5.0.2</version>
+                <version>5.0.4</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
